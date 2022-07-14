@@ -3,6 +3,7 @@ import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import articlesTpl from '../templates/articlesTpl.hbs';
 
 const apiService = new ApiService();
+const galleryListEl = document.querySelector(".gallery__grid")
 
 async function handleQueryApi() {
   try {
@@ -17,4 +18,7 @@ async function handleQueryApi() {
   }
 }
 
-function appendArticlesMarkup(articles) {}
+function appendArticlesMarkup(articles) {
+  galleryListEl.innerHTML = articlesTpl(articles)
+}
+handleQueryApi()

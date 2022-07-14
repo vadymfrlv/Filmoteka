@@ -1,0 +1,7 @@
+.gallery__grid {
+    display: grid;
+    column-gap: 16px;
+    row-gap: 32px;
+    grid-template-columns: repeat(3, 395px);
+   
+  }
