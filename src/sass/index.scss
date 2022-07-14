@@ -1,2 +1,6 @@
-@import './common';
-
+@import './utils/variables';
+@import './utils/mixin';
+@import './base/resets';
+@import './base/common';
+@import './base/container';
+@import './components/header';
