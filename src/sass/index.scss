@@ -1,9 +1,9 @@
-@import './common';
 @import './utils/variables';
-@import './utils/base-style';
+@import './utils/mixin';
+@import './base/resets';
+@import './base/common';
+@import './base/container';
 @import './components/header';
-@import './components/header-library';
 @import './components/main';
 @import './components/modal';
 @import './components/footer';
-
