@@ -2,7 +2,7 @@
  {{#each this}}
  <li class="gallery__item">
         <a class="gallery__link" href="#">
-          <img class="gallery__img" srcset="" sizes="" src="https://api.themoviedb.org/3{{poster_path}}/api_key=82c59d753050746a09d77670604a0453" alt="" width="395" height="574">
+          <img class="gallery__img" srcset="" sizes="" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="" width="395" height="574">
           <div class="gallery__thumb">
             <h2 class="gallery__film-name">{{title}}</h2>
             <p class="gallery__film-text-about">Drama, Action | {{release_date}}</p>
@@ -10,3 +10,4 @@
         </a>
       </li>
 {{/each}}
+
