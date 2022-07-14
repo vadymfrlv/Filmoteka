@@ -26,3 +26,15 @@
     line-height: 1.2;
     color: #FF6B08;
   }
+
+.pagination__container {
+  display: flex;
+  justify-content: center;
+}
+
+  .pagination__btn {
+    padding: 25px;
+    cursor: pointer;
+    background-color: rgb(228, 57, 51);
+    border-radius: 12px;
+  }
