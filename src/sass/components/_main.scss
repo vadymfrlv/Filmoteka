@@ -3,5 +3,26 @@
     column-gap: 16px;
     row-gap: 32px;
     grid-template-columns: repeat(3, 395px);
+    justify-content: center;
+    
    
+  }
+
+  .gallery__img{
+      margin-bottom: 12px;
+      height: 574px;
+  }
+
+  .gallery__film-name {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .gallery__film-text-about {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #FF6B08;
   }
