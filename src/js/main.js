@@ -13,7 +13,6 @@ const handleQueryApi = async () => {
   try {
     Loading.circle('Loading...');
     const data = await apiService.getTrendingArticles();
-
     renderArticlesMarkup(data);
     Loading.remove();
   } catch (error) {
@@ -42,5 +41,7 @@ const paginationBtnHandle = async e => {
   }
   handleQueryApi();
 };
+
+apiService.getGenres()
 
 paginationBtnContainerEl.addEventListener('click', paginationBtnHandle);
