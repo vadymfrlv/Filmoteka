@@ -14,7 +14,6 @@ class ApiService {
       `https://api.themoviedb.org/3/genre/movie/list?api_key=${KEY}&language=en-US`
     );
 
-    // console.log(response.data.genres);
     return response.data.genres;
   }
 
@@ -26,22 +25,7 @@ class ApiService {
     response.data.results.forEach(
       element => (element.release_date = element.release_date.slice(0, 4))
     );
-    // response.data.results.forEach(element=>
-    //   element.genre_ids.forEach(id=>
-    //     this.getGenres().then((response)=>{
-    //       return response.forEach((el)=>{
-    //                if (id === el.id){
 
-    //                 element.genre_ids.push(el.name)
-    //               }
-    //               element.genre_ids.map((el,idx)=>{
-    //                 if(typeof el === 'number'){
-    //                   element.genre_ids.splice(idx, 1)
-    //                 }
-    //               })
-    //           });
-    //         })))
-    // console.log(response.data);
     return response.data;
   }
 

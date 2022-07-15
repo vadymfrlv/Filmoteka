@@ -36,7 +36,7 @@ async function fetchPerPage(page) {
   apiService.page = page;
 
   const response = await apiService.getTrendingArticles();
-  console.log(response);
+
   galleryListEl.innerHTML = articlesTpl(response.results);
   if (page === 1) pagination.reset(response.total_results);
 }
