@@ -1,5 +1,6 @@
 header {
   position: relative;
+  height: 230px;
   width: 100%;
   max-width: 1280px;
   margin-right: auto;
@@ -9,8 +10,13 @@ header {
   padding-bottom: 92px;
 
   @include mq(tab) {
+    height: 219px;
     margin-bottom: 60px;
     padding-bottom: 80px;
+  }
+
+  @include mq(desk) {
+    height: 216px;
   }
 }
 
@@ -18,57 +24,67 @@ header {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url(../images/header-home/mob.jpg);
 
   @include mq(retina) {
-    background-image: url(../images/header-home/mob2x.jpg);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url(../images/header-home/mob2x.jpg);
   }
 
   @include mq(tab) {
-    background-image: url(../images/header-home/tab.jpg);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url(../images/header-home/tab.jpg);
 
     @include mq(retina) {
-      background-image: url(../images/header-home/tab2x.jpg);
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url(../images/header-home/tab2x.jpg);
     }
   }
 
   @include mq(desk) {
-    background-image: url(../images/header-home/desk.jpg);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url(../images/header-home/desk.jpg);
 
     @include mq(retina) {
-      background-image: url(../images/header-home/desk2x.jpg);
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url(../images/header-home/desk2x.jpg);
     }
   }
 }
 
-// .header-bg-libraly {
-//   background-size: cover;
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-//     url(../images/header-library/mob.jpg);
+.header-bg-library {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../images/header-library/mob.jpg);
 
-//   @include mq(retina) {
-//     background-image: url(../images/header-library/mob2x.jpg);
-//   }
+  @include mq(retina) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header-library/mob2x.jpg);
+  }
 
-//   @include mq(tab) {
-//     background-image: url(../images/header-libraly/tab.jpg);
+  @include mq(tab) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header-library/tab.jpg);
 
-//     @include mq(retina) {
-//       background-image: url(../images/header-libraly/tab2x.jpg);
-//     }
-//   }
+    @include mq(retina) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/header-library/tab2x.jpg);
+    }
+  }
 
-//   @include mq(desk) {
-//     background-image: url(../images/header-libraly/desk.jpg);
+  @include mq(desk) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header-library/desk.jpg);
 
-//     @include mq(retina) {
-//       background-image: url(../images/header-libraly/desk2x.jpg);
-//     }
-//   }
-// }
+    @include mq(retina) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/header-library/desk2x.jpg);
+    }
+  }
+}
 
 .logo {
   width: 24px;
@@ -99,6 +115,11 @@ header {
   @include mq(tab) {
     margin-bottom: 43px;
   }
+}
+
+.page-link {
+  display: flex;
+  align-items: center;
 }
 
 .navi__list {
@@ -211,20 +232,78 @@ header {
 
 .form__warning {
   position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 280px;
+  width: 281px;
   margin-top: 20px;
 
   font-weight: 400;
   font-size: 14px;
   line-height: 1.14;
-  text-align: center;
+  text-align: left;
 
   color: var(--sec-red-color);
 
   @include mq(tab) {
-    width: 390px;
+    width: 336px;
+    text-align: center;
   }
+
+  @include mq(desk) {
+    width: 394;
+  }
+}
+
+.lib__btns {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.lib__btn {
+  width: 130px;
+  height: 44px;
+
+  font-size: var(--main-font-size);
+  line-height: var(--main-line-height);
+  text-transform: uppercase;
+  color: var(--main-white-color);
+
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid var(--main-white-color);
+  transition: var(--transition);
+  filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
+
+  &:focus,
+  &:hover {
+    background-color: var(--btn-accent-color);
+    border-color: var(--btn-accent-color);
+  }
+
+  @include mq(tab) {
+    width: 152px;
+  }
+
+  @include mq(desk) {
+    width: 148px;
+    height: 42px;
+  }
+}
+
+.lib__btn:not(:last-child) {
+  margin-right: 20px;
+
+  @include mq(tab) {
+    margin-right: 32px;
+  }
+
+  @include mq(desk) {
+    margin-right: 16px;
+  }
+}
+
+.active-btn {
+  background-color: var(--btn-accent-color);
+  border-color: var(--btn-accent-color);
 }

@@ -1,26 +1,26 @@
-<header class="header-bg-home">
+<header class="header-bg-home js-header">
   <div class="container">
-    <nav class="navi">
+    <nav class="navi js-navi">
       <a class="page-link" href="./index.html">
-        <svg class="logo">
+        <svg class="logo js-logo">
           <use href="./images/sprite.svg#icon-logo"></use>
         </svg>
         <span class="logo__text">Filmoteka</span>
       </a>
       <ul class="navi__list">
         <li class="navi__item">
-          <a class="navi__link current" id="home" href="">Home</a>
+          <a class="navi__link js-home_page current" href="./index.html">Home</a>
         </li>
         <li class="navi__item">
-          <a class="navi__link" href="">My library</a>
+          <a class="navi__link js-lib_page" href="#">My library</a>
         </li>
       </ul>
     </nav>
 
     <div class="search-container">
-      <form class="form">
+      <form class="form js-form">
         <input
-          class="form__input"
+          class="form__input js-form-input"
           type="text"
           name="query"
           autocomplete="off"
@@ -32,16 +32,22 @@
           </svg>
         </button>
         <div class="form__warning visually-hidden">
-          Search result not successful. <br />
-          Enter the correct movie name and repeat.
+          <p>Search result not successful.</p>
+          <p>Enter the correct movie name and repeat.</p>
         </div>
       </form>
     </div>
-    <div class="buttons visually-hidden">
-      <button class="lib__btn btn_watched active-btn" data-libbtn="watched" type="button">
+    <div class="lib__btns js-buttons visually-hidden">
+      <button class="lib__btn active-btn js-btn_watched" data-libbtn="watched" type="button">
         Watched
       </button>
-      <button class="lib__btn btn_queue" type="button" data-libbtn="queue">Queue</button>
+      <button class="lib__btn js-btn_queue" type="button" data-libbtn="queue">Queue</button>
     </div>
   </div>
+
+  <section class="wrapper">
+    <div id="stars1"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+  </section>
 </header>
