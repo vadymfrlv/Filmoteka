@@ -9,22 +9,40 @@ class ApiService {
     this.page = 1;
   }
 
+  async getGenres() {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/genre/movie/list?api_key=${KEY}&language=en-US`
+    );
+
+    // console.log(response.data.genres);
+    return response.data.genres;
+  }
+
   async getTrendingArticles() {
     const response = await axios.get(
       `${URL}/trending/movie/week?api_key=${KEY}&page=${this.page}`
     );
-    console.log(response.data.results);
-    return response.data.results;
-  }
 
-  incrementPage() {
-    this.page += 1;
-  }
-  decrementPage() {
-    this.page -= 1;
-  }
-  changePage(newPage) {
-    this.page = newPage;
+    response.data.results.forEach(
+      element => (element.release_date = element.release_date.slice(0, 4))
+    );
+    // response.data.results.forEach(element=>
+    //   element.genre_ids.forEach(id=>
+    //     this.getGenres().then((response)=>{
+    //       return response.forEach((el)=>{
+    //                if (id === el.id){
+
+    //                 element.genre_ids.push(el.name)
+    //               }
+    //               element.genre_ids.map((el,idx)=>{
+    //                 if(typeof el === 'number'){
+    //                   element.genre_ids.splice(idx, 1)
+    //                 }
+    //               })
+    //           });
+    //         })))
+    // console.log(response.data);
+    return response.data;
   }
 
   get query() {
