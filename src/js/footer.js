@@ -38,6 +38,6 @@ window.onclick = function (event) {
   }
 };
 // imgContainer.innerHTML = footerTpl();
-imgContainer.insertAdjacentHTML();
+// imgContainer.insertAdjacentHTML();
 
-console.log(imgContainer);
+// console.log(imgContainer);

@@ -1,3 +1,3 @@
 import './js/main';
-import './js/footer';
 import './js/pagination';
+import './js/footer';
