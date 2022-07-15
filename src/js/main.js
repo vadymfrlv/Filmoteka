@@ -5,9 +5,6 @@ import articlesTpl from '../templates/articlesTpl.hbs';
 const apiService = new ApiService();
 
 const galleryListEl = document.querySelector('.gallery__grid');
-const paginationBtnContainerEl = document.querySelector(
-  '.pagination__container'
-);
 
 const handleQueryApi = async () => {
   try {
@@ -27,20 +24,3 @@ const renderArticlesMarkup = articles => {
 };
 
 handleQueryApi();
-
-// const paginationBtnHandle = async e => {
-//   const textContentClickedBtn = e.target.textContent;
-
-//   if (!isNaN(textContentClickedBtn)) {
-//     apiService.changePage(textContentClickedBtn);
-//   }
-//   if (textContentClickedBtn === '-') {
-//     apiService.decrementPage();
-//   }
-//   if (textContentClickedBtn === '+') {
-//     apiService.incrementPage();
-//   }
-//   handleQueryApi();
-// };
-
-// paginationBtnContainerEl.addEventListener('click', paginationBtnHandle);

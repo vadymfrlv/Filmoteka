@@ -9,6 +9,13 @@ class ApiService {
     this.page = 1;
   }
 
+   async getGenres (){
+     const response = await axios.get (`https://api.themoviedb.org/3/genre/movie/list?api_key=${KEY}&language=en-US`)
+    
+      console.log(response.data.genres);
+      return response.data.genres
+   }
+   
   async getTrendingArticles() {
     const response = await axios.get(
       `${URL}/trending/movie/week?api_key=${KEY}&page=${this.page}`
@@ -16,16 +23,6 @@ class ApiService {
     // console.log(response.data);
     return response.data;
   }
-
-  // incrementPage() {
-  //   this.page += 1;
-  // }
-  // decrementPage() {
-  //   this.page -= 1;
-  // }
-  // changePage(newPage) {
-  //   this.page = newPage;
-  // }
 
   get query() {
     return this.searchQuery;
