@@ -1,0 +1,53 @@
+
+.tui-pagination {
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.move-btn-first, .move-btn-last {
+display: none;
+}
+
+.move-btn-prev {
+  background-image: url('./../images/arrows/prev.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  border-radius: 5px;
+  border: none;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.move-btn-next {
+  background-image: url('./../images/arrows/next.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  border-radius: 5px;
+  border: none;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
+.tui-pagination {
+  display: flex;
+}
+
+.page-btn {
+  font-weight: 500;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+
+.is-selected {
+  color: #ffffff;
+  background: #FF6B08;
+}
