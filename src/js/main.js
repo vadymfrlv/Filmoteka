@@ -5,15 +5,13 @@ import articlesTpl from '../templates/articlesTpl.hbs';
 const apiService = new ApiService();
 
 const galleryListEl = document.querySelector('.gallery__grid');
-const paginationBtnContainerEl = document.querySelector(
-  '.pagination__container'
-);
 
 const handleQueryApi = async () => {
   try {
     Loading.circle('Loading...');
     const data = await apiService.getTrendingArticles();
-    renderArticlesMarkup(data);
+
+    renderArticlesMarkup(data.results);
     Loading.remove();
   } catch (error) {
     Loading.remove();
@@ -26,22 +24,3 @@ const renderArticlesMarkup = articles => {
 };
 
 handleQueryApi();
-
-const paginationBtnHandle = async e => {
-  const textContentClickedBtn = e.target.textContent;
-
-  if (!isNaN(textContentClickedBtn)) {
-    apiService.changePage(textContentClickedBtn);
-  }
-  if (textContentClickedBtn === '-') {
-    apiService.decrementPage();
-  }
-  if (textContentClickedBtn === '+') {
-    apiService.incrementPage();
-  }
-  handleQueryApi();
-};
-
-apiService.getGenres()
-
-paginationBtnContainerEl.addEventListener('click', paginationBtnHandle);
