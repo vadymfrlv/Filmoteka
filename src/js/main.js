@@ -14,7 +14,7 @@ const handleQueryApi = async () => {
     Loading.circle('Loading...');
     const data = await apiService.getTrendingArticles();
 
-    renderArticlesMarkup(data);
+    renderArticlesMarkup(data.results);
     Loading.remove();
   } catch (error) {
     Loading.remove();
@@ -28,19 +28,19 @@ const renderArticlesMarkup = articles => {
 
 handleQueryApi();
 
-const paginationBtnHandle = async e => {
-  const textContentClickedBtn = e.target.textContent;
+// const paginationBtnHandle = async e => {
+//   const textContentClickedBtn = e.target.textContent;
 
-  if (!isNaN(textContentClickedBtn)) {
-    apiService.changePage(textContentClickedBtn);
-  }
-  if (textContentClickedBtn === '-') {
-    apiService.decrementPage();
-  }
-  if (textContentClickedBtn === '+') {
-    apiService.incrementPage();
-  }
-  handleQueryApi();
-};
+//   if (!isNaN(textContentClickedBtn)) {
+//     apiService.changePage(textContentClickedBtn);
+//   }
+//   if (textContentClickedBtn === '-') {
+//     apiService.decrementPage();
+//   }
+//   if (textContentClickedBtn === '+') {
+//     apiService.incrementPage();
+//   }
+//   handleQueryApi();
+// };
 
-paginationBtnContainerEl.addEventListener('click', paginationBtnHandle);
+// paginationBtnContainerEl.addEventListener('click', paginationBtnHandle);

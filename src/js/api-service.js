@@ -13,19 +13,19 @@ class ApiService {
     const response = await axios.get(
       `${URL}/trending/movie/week?api_key=${KEY}&page=${this.page}`
     );
-    console.log(response.data.results);
-    return response.data.results;
+    // console.log(response.data);
+    return response.data;
   }
 
-  incrementPage() {
-    this.page += 1;
-  }
-  decrementPage() {
-    this.page -= 1;
-  }
-  changePage(newPage) {
-    this.page = newPage;
-  }
+  // incrementPage() {
+  //   this.page += 1;
+  // }
+  // decrementPage() {
+  //   this.page -= 1;
+  // }
+  // changePage(newPage) {
+  //   this.page = newPage;
+  // }
 
   get query() {
     return this.searchQuery;

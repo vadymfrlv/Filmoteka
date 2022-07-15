@@ -22,7 +22,8 @@
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.5",
     "parcel-transformer-hbs": "^1.0.4",
-    "simplelightbox": "^2.10.3"
+    "simplelightbox": "^2.10.3",
+    "tui-pagination": "^3.4.1"
   },
   "devDependencies": {
     "@parcel/packager-raw-url": "^2.6.2",
