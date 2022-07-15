@@ -20,23 +20,8 @@ class ApiService {
     const response = await axios.get(
       `${URL}/trending/movie/week?api_key=${KEY}&page=${this.page}`
     );
-
-     response.data.results.forEach(element => 
-      element.release_date =element.release_date.slice(0, 4) 
-    );
-
-    console.log(response.data.results);
-    return response.data.results;
-  }
-
-  incrementPage() {
-    this.page += 1;
-  }
-  decrementPage() {
-    this.page -= 1;
-  }
-  changePage(newPage) {
-    this.page = newPage;
+    // console.log(response.data);
+    return response.data;
   }
 
   get query() {
