@@ -23,6 +23,7 @@
   .gallery__img{
     height: 402px;
     margin-bottom: 10px;
+    border-radius: 5px;
 
     @include mq(tab) {
         margin-bottom: 8px;
