@@ -32,7 +32,7 @@ class ApiService {
     const response = await axios.get(
       `${URL}movie/${id}?api_key=${KEY}&language=en-US`
     );
-    console.log(response);
+
     return response.data;
   }
 
