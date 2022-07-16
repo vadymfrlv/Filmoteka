@@ -25,18 +25,18 @@
 
 
 .modal-box {
-  @media screen and (min-width: 767.98px) {
+  @include mq(tab) {
     display: flex;
   }
 }
 
 .modal-info {
-  @media screen and (min-width: 767.98px) {
+  @include mq(tab) {
     width: 264px;
   }
 }
 .modal-info {
-  @media screen and (min-width: 1199.98px) {
+  @include mq(desk) {
     width: 391px;
   }
 }
@@ -49,12 +49,12 @@
   padding-right: 20px;
   width: 280px;
 
-  border: 2px solid #8c8c8c;
+ 
   border-radius: 2px;
-  background-color: #ffffff;
+  background-color: var(--main-white-color);
   transform: translate(-50%, -50%);
 
-  @media screen and (min-width: 767.98px) {
+  @include mq(tab) {
     width: 704px;
 
     padding: 40px;
@@ -62,7 +62,7 @@
     padding-right: 36px;
   }
 
-  @media screen and (min-width: 1199.98px) {
+  @include mq(desk) {
     width: 806px;
     height: 558px;
     padding: 40px;
@@ -82,19 +82,18 @@
     height: 30px;
     box-sizing: inherit;
     border-radius: 50%;
-    background-color: #ffffff;
+    background-color: var(--main-white-color);
     border: none;
 
     transition-property: box-shadow fill;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: var(--transition);
 
     &:hover,
     &:focus {
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
         0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
         0px 4px 4px rgba(0, 0, 0, 0.25);
-      fill: #ff6b01;
+      fill: var(--btn-accent-color);
     }
   }
 }
@@ -102,14 +101,14 @@
 .modal__sign img {
   margin-bottom: 20px;
 
-  @media screen and (min-width: 767.98px) {
+  @include mq(tab) {
     width: 264px;
     height: 374px;
     margin: 0px;
     margin-right: 68px;
   }
 
-  @media screen and (min-width: 1199.98px) {
+  @include mq(desk) {
     width: 375px;
     height: 478px;
     margin-right: 16px;
@@ -122,11 +121,11 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 23px;
-  color: #000000;
+  color: var(--main-text-color);
 
   margin-bottom: 20px;
 
-  @media screen and (min-width: 1199.98px) {
+  @include mq(desk){
     font-size: 30px;
     line-height: 35px;
   }
@@ -152,7 +151,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-  color: #8c8c8c;
+  color: #8C8C8C;
 }
 
 .modal-list__items span {
@@ -164,7 +163,7 @@
   display: flex;
   align-items: center;
   text-transform: uppercase;
-  color: #000000;
+  color: var(--main-text-color);
 }
 
 .modal-list__items .reat {
@@ -174,14 +173,15 @@
   height: 16px;
   padding: 1px;
   border-radius: 5px;
-  background-color: #8c8c8c;
+  background-color:#F7F7F7;
 }
 
 .modal-list__items .vote {
-  background-color: #ff6b01;
+  background-color: var(--btn-accent-color);
+  color: var(--main-white-color);
   margin-left: 47px;
 
-  @media screen and (min-width: 1199.98px) {
+  @include mq(desk) {
     margin-left: 92px;
   }
 }
@@ -190,21 +190,21 @@
   & .popularity {
     margin-left: 53px;
 
-    @media screen and (min-width: 1199.98px) {
+    @include mq(desk) {
       margin-left: 98px;
     }
   }
   & .original-title {
     margin-left: 39px;
 
-    @media screen and (min-width: 1199.98px) {
+    @include mq(desk) {
       margin-left: 82px;
     }
   }
   & .genre {
     margin-left: 81px;
 
-    @media screen and (min-width: 1199.98px) {
+    @include mq(desk) {
       margin-left: 127px;
     }
   }
@@ -219,7 +219,7 @@
   display: flex;
   align-items: center;
   text-transform: uppercase;
-  color: #000000;
+  color: var(--main-text-color);
 
   margin-bottom: 8px;
 }
@@ -229,7 +229,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 20px;
-  color: #000000;
+  color: var(--main-text-color);
   margin-bottom: 20px;
 }
 
@@ -243,56 +243,56 @@
   line-height: 16px;
   width: 110px;
   height: 44px;
+  cursor: pointer;
   text-transform: uppercase;
   border-radius: 5px;
-  border: 1px solid #ff6b01;
-  color: #ffffff;
-  background-color: #ff6b01;
+  border: 1px solid var(--btn-accent-color);
+  color: var(--main-white-color);
+  background-color: var(--btn-accent-color);
+  
 
   &:not(:last-child) {
     margin-right: 20px;
   }
 
-  @media screen and (min-width: 767.98px) {
+  @include mq(tab) {
     width: 125px;
     height: 44px;
   }
 
-  @media screen and (min-width: 1199.98px) {
+  @include mq(desk) {
     width: 136px;
     height: 44px;
   }
 
   transition-property: box-shadow, color, background-color, border-color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition);
 }
 .button:hover,
-.button:focus {
+.button:focus{
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
     0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
   background-color: transparent;
-  color: #000000;
-  border: 1px solid #000000;
+  color: var(--main-text-color);
+  border: 1px solid var(--main-text-color);
 }
 
 .queue {
   background-color: transparent;
-  color: #000000;
-  border: 1px solid #000000;
+  color: var(--main-text-color);
+  border: 1px solid var(--main-text-color);
 
   transition-property: box-shadow, color, background-color, border-color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition);
 }
 
 .queue:hover,
 .queue:focus {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
     0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border: #ff6b01;
-  background-color: #ff6b01;
-  color: #ffffff;
+  border: var(--btn-accent-color);
+  background-color: var(--btn-accent-color);
+  color: var(--main-white-color);
 }
 
 
