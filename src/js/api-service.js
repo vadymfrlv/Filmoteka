@@ -28,6 +28,13 @@ class ApiService {
 
     return response.data;
   }
+  async getFullInfoById(id) {
+    const response = await axios.get(
+      `${URL}movie/${id}?api_key=${KEY}&language=en-US`
+    );
+
+    return response.data;
+  }
 
   get query() {
     return this.searchQuery;

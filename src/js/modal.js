@@ -1,40 +1,26 @@
 import ApiService from './api-service';
 import modalInfoHbs from '../templates/modalInfo.hbs';
 
-const modalEl = document.querySelector('.modal');
-
-const refs = {
-  openModalBtn: document.querySelector('[data-modal-open]'),
-  closeModalBtn: document.querySelector('[data-modal-close]'),
-  modal: document.querySelector('[data-modal]'),
-};
-
-refs.openModalBtn.addEventListener('click', toggleModal);
-refs.closeModalBtn.addEventListener('click', toggleModal);
-
-function toggleModal() {
-  refs.modal.classList.toggle('is-hidden');
-}
-
 const apiService = new ApiService();
 
-let modalElId = [0];
+const refs = {
+  modal: document.querySelector('[data-modal]'),
+  closeModalBtn: document.querySelector('[data-modal-close]'),
+  galleryList: document.querySelector('.gallery__grid'),
+  modalContainer: document.querySelector('.modal__container'),
+};
 
-export async function modals() {
-  const data = await apiService.getTrendingArticles();
+const onOpenModal = async e => {
+  e.preventDefault();
+  const targetItem = e.target.closest('li');
 
-  const test = data.results;
+  const fullInfo = await apiService.getFullInfoById(targetItem.dataset.id);
+  refs.modalContainer.innerHTML = modalInfoHbs(fullInfo);
 
-  const modalElements = test.map(element => {
-    return element;
-  });
+  refs.modal.classList.remove('is-hidden');
+};
 
-  objectFilmInfo = { ...modalElements };
-
-  modalEl.insertAdjacentHTML(
-    'beforeend',
-    modalInfoHbs(objectFilmInfo[modalElId])
-  );
-}
-
-modals();
+refs.galleryList.addEventListener('click', onOpenModal);
+refs.closeModalBtn.addEventListener('click', () =>
+  refs.modal.classList.add('is-hidden')
+);
