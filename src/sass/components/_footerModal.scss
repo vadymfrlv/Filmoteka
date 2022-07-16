@@ -1,18 +1,14 @@
 .modal-foot {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none;
+  position: fixed;
+  z-index: 1;
 
   bottom: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  //   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-  //   -webkit-animation-name: fadeIn; /* Fade in the background */
-  //   -webkit-animation-duration: 0.4s;
-  //   animation-name: fadeIn;
-  //   animation-duration: 0.4s;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 /* Modal Content */
@@ -20,17 +16,28 @@
   position: fixed;
   bottom: 0;
   left: 0;
-  background-color: #fefefe;
+
   width: 100%;
   animation-duration: 3s;
   animation-name: slidein;
   animation-iteration-count: unset;
-  //   -webkit-animation-name: slideIn;
-  //   -webkit-animation-duration: 0.4s;
-  //   animation-name: slide;
-
-  //   animation-duration: 0.4s;
-  //   animation: 3s slidein;
+  background-image: linear-gradient(
+    45deg,
+    hsl(240deg 100% 20%) 0%,
+    hsl(279deg 100% 21%) 18%,
+    hsl(301deg 100% 21%) 27%,
+    hsl(317deg 100% 28%) 34%,
+    hsl(326deg 100% 34%) 40%,
+    hsl(333deg 100% 39%) 45%,
+    hsl(339deg 100% 44%) 50%,
+    hsl(354deg 88% 57%) 54%,
+    hsl(8deg 100% 61%) 59%,
+    hsl(21deg 100% 58%) 64%,
+    hsl(32deg 100% 53%) 70%,
+    hsl(41deg 100% 50%) 77%,
+    hsl(48deg 100% 50%) 86%,
+    hsl(55deg 100% 50%) 100%
+  );
 }
 
 /* The Close Button */
@@ -49,20 +56,52 @@
 }
 
 .modal-header {
-  padding: 2px 16px;
-  background-color: #5cb85c;
+  // padding: 2px 16px;
+  // background-color: #5cb85c;
   color: white;
+}
+
+.modal-header p {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.16;
+  text-align: center;
+  color: #000000;
 }
 
 .modal-body {
   padding: 2px 16px;
   display: flex;
+  justify-content: space-evenly;
 }
-.modal-body div {
+.modal-card {
   animation-duration: 5s;
-  animation-name: slidein;
+  // animation-name: slidein;
+  text-align: center;
 }
-
+.modal-card img {
+  border-radius: 10px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.modal-card div {
+  margin-top: 10px;
+  background-color: #fefefe;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  color: #212121;
+  border-radius: 10px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.modal-card.gallery {
+  $sl-overlay-background: red;
+}
 .modal-footer {
   padding: 2px 16px;
   background-color: #5cb85c;
@@ -73,7 +112,7 @@
 
 @keyframes slidein {
   from {
-    botom: 300px;
+    botom: 100px;
     width: 300%;
   }
 
@@ -82,57 +121,3 @@
     width: 100%;
   }
 }
-
-// @-webkit-keyframes slideIn {
-//   from {
-//     bottom: -300px;
-//     opacity: 0;
-//   }
-//   to {
-//     bottom: 0;
-//     opacity: 1;
-//   }
-// }
-
-// @keyframes slideIn {
-//   from {
-//     bottom: -300px;
-//     opacity: 0;
-//   }
-//   to {
-//     // top: 300px;
-//     opacity: 0;
-//   }
-// }
-// @keyframes slideOff {
-//   from {
-//     bottom: -300px;
-//     opacity: 0;
-//   }
-//   to {
-//     bottom: 300px;
-//     opacity: 1;
-//   }
-// }
-
-// @-webkit-keyframes fadeIn {
-//   from {
-//     bottom: -300px;
-//     opacity: 0;
-//   }
-//   to {
-//     bottom: -300px;
-//     opacity: 1;
-//   }
-// }
-
-// @keyframes fadeIn {
-//   from {
-//     bottom: -300px;
-//     opacity: 0;
-//   }
-//   to {
-//     bottom: -300px;
-//     opacity: 1;
-//   }
-// }
