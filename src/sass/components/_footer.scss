@@ -1,8 +1,10 @@
+footer {
+  background-color: #f7f7f7;
+}
 .section {
   display: contents;
 }
 .footer {
-  background-color: #f7f7f7;
   padding: 29px 30px;
   margin: 0 auto;
   width: 320px;
@@ -27,6 +29,7 @@
 .footer__box-img {
   margin-top: 10px;
   display: flex;
+  align-items: center;
 }
 .curent {
   position: relative;
