@@ -15,12 +15,20 @@ const localStorageHandle = new LocalStorageHandle();
 
 const btnPageQueueHandler = () => {
   const queueFilmsData = localStorageHandle.getLocalStorageQueue();
-  refs.galleryList.innerHTML = articlesTpl(queueFilmsData);
+  const normalizedData = queueFilmsData.map(el => {
+    return normalizeDataApi.updateDataFilmsLibrary(el);
+  });
+
+  refs.galleryList.innerHTML = articlesTpl(normalizedData);
 };
 
 const btnPageWatchedHandler = () => {
   const watchedFilmsData = localStorageHandle.getLocalStorageWatched();
-  refs.galleryList.innerHTML = articlesTpl(watchedFilmsData);
+  const normalizedData = watchedFilmsData.map(el => {
+    return normalizeDataApi.updateDataFilmsLibrary(el);
+  });
+
+  refs.galleryList.innerHTML = articlesTpl(normalizedData);
 };
 
 const onLinkPageLibrary = async e => {

@@ -1,10 +1,8 @@
 import ApiService from './api-service';
 import modalInfoHbs from '../templates/modalInfo.hbs';
-import NormalizeDataApi from './normalize-data-api';
 import LocalStorageHandle from './localeStorage';
 
 const apiService = new ApiService();
-const normalizeDataApi = new NormalizeDataApi();
 const localStorageHandle = new LocalStorageHandle();
 
 const refs = {

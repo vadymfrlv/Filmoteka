@@ -43,7 +43,7 @@ async function fetchPerPage(page) {
 
   const response = await apiService.getTrendingArticles();
   const genres = await apiService.getGenres();
-  const normalizedData = await normalizeDataApi.updateDataGenre(
+  const normalizedData = await normalizeDataApi.updateDataTranding(
     response,
     genres
   );
