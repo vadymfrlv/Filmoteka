@@ -14,10 +14,7 @@ class HandleQueryTrendingApi {
       Loading.circle('Loading...');
       const data = await apiService.getTrendingArticles();
       const genres = await apiService.getGenres();
-      const normalizedData = await normalizeDataApi.updateDataGenre(
-        data,
-        genres
-      );
+      const normalizedData = await normalizeDataApi.updateDataGenre(data, genres);
       renderGallery.renderGalleryMarkup(normalizedData);
       Loading.remove();
       return data;
