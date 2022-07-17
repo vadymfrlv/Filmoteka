@@ -16,7 +16,6 @@ const onOpenModal = async e => {
 
   const fullInfo = await apiService.getFullInfoById(targetItem.dataset.id);
   refs.modalContainer.innerHTML = modalInfoHbs(fullInfo);
-
   refs.modal.classList.remove('is-hidden');
 };
 
