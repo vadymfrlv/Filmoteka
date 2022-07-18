@@ -38,7 +38,6 @@ const onOpenModal = async e => {
 
   const fullInfo = await apiService.getFullInfoById(idTargetItem);
   refs.modalContainer.innerHTML = modalInfoHbs(fullInfo);
-
   refs.modal.classList.remove('is-hidden');
 
   localStorageHandle.targetDataFilm = fullInfo;
