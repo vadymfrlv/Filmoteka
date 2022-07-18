@@ -64,3 +64,15 @@
     background-color: rgb(228, 57, 51);
     border-radius: 12px;
   }
+
+  .gallery__item {
+    transition-property: transform;
+    animation-timing-function: linear;
+    
+    transition-duration: 500ms;
+   
+    &:hover,
+    &:focus {
+        transform: scale(1.05);
+    }
+  }
