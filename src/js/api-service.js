@@ -29,10 +29,6 @@ class ApiService {
   async getTrendingArticles() {
     const response = await axios.get(`${URL}/trending/movie/week?api_key=${KEY}&page=${this.page}`);
 
-    response.data.results.forEach(
-      element => (element.release_date = element.release_date.slice(0, 4))
-    );
-
     return response.data;
   }
   async getFullInfoById(id) {
