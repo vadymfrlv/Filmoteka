@@ -3,10 +3,10 @@
   <div class='modal-box'>
     <div>
       <img
-      {{#if poster.path}}
+      {{#if poster_path}}
         src='https://image.tmdb.org/t/p/w500{{poster_path}}'
         {{else}}
-        src='../images/poster-notfound/posterholder.jpg'
+        src='https://raw.githubusercontent.com/vadymfrlv/storage/b4e0abb7f45980d92f3ee2da26a5960181a17f8f/filmoteka/posterholder.jpg'
         {{/if}}
         alt='poster'
         min-width='240px'
