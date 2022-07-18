@@ -65,6 +65,13 @@ footer {
 
 .fotter__heart {
   margin-right: 10px;
+  animation: beat 0.5s infinite alternate;
+  transform-origin: center;
+}
+@keyframes beat {
+  to {
+    transform: scale(1.4);
+  }
 }
 
 .footer__link {

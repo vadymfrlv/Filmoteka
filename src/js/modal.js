@@ -1,19 +1,22 @@
 import ApiService from './api-service';
 import modalInfoHbs from '../templates/modalInfo.hbs';
 import LocalStorageHandle from './localeStorage';
+
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import NormalizeDataApi from './normalize-data-api';
+
 const apiService = new ApiService();
 const localStorageHandle = new LocalStorageHandle();
+const normalizeDataApi = new NormalizeDataApi();
 
 const refs = {
   modal: document.querySelector('[data-modal]'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
   galleryList: document.querySelector('.gallery__grid'),
   modalContainer: document.querySelector('.modal__container'),
-  btnAddToWatched: document.querySelector('.js-addToWatched'),
-  btnAddToQueue: document.querySelector('.js-addToQueue'),
+  btnAddToWatched: document.querySelector('.js-add-to-watched'),
+  btnAddToQueue: document.querySelector('.js-add-to-queue'),
 };
 
 export function watchTrailer() {
@@ -72,6 +75,7 @@ const onOpenModal = async e => {
   const idTargetItem = e.target.closest('li').dataset.id;
 
   const fullInfo = await apiService.getFullInfoById(idTargetItem);
+
   console.log(fullInfo);
   refs.modalContainer.innerHTML = modalInfoHbs(fullInfo);
   const youtubeBtn = document.querySelector('.film__trailer__btn');
@@ -79,9 +83,14 @@ const onOpenModal = async e => {
     e.preventDefault();
     watchTrailer();
   });
+
+  const normalizedInfo = normalizeDataApi.updateDataFilmsLibrary(fullInfo);
+  console.log(normalizedInfo);
+  refs.modalContainer.innerHTML = modalInfoHbs(normalizedInfo);
+
   refs.modal.classList.remove('is-hidden');
 
-  localStorageHandle.targetDataFilm = fullInfo;
+  localStorageHandle.targetDataFilm = normalizedInfo;
   addEventListeners();
 };
 
