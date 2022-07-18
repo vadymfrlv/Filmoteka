@@ -1,40 +1,30 @@
-//! const darkModEL = document.querySelectorAll('.js-dark-mod');
+const darkModEL = document.querySelectorAll('.js-dark-mod');
 
+document.querySelector('.themetoggle').addEventListener('click', evt => {
+  evt.preventDefault();
+  if (localStorage.getItem('theme') === 'dark') {
+    localStorage.removeItem('theme');
+  } else {
+    localStorage.setItem('theme', 'dark');
+  }
+  addDarkClassToHtml();
+});
 
-// document.querySelector('.themetoggle').addEventListener('click', evt => {
-//   evt.preventDefault();
-//   if (localStorage.getItem('theme') === 'dark') {
-//     localStorage.removeItem('theme');
-//   } else {
-//     localStorage.setItem('theme', 'dark');
-//   }
-//   addDarkClassToHtml();
-// });
-
-// function addDarkClassToHtml() {
-//   try {
-//     if (localStorage.getItem('theme') === 'dark') {
-//       bodyEL.classList.add('dark');
-//       modalMod.classList.add('dark');
-//       document.querySelector('.themetoggle span').textContent = 'dark_mode';
-//     } else {
-//       bodyEL.classList.remove('dark');
-//       modalMod.classList.remove('dark');
-//       document.querySelector('.themetoggle span').textContent = 'wb_sunny';
-//     }
-//   } catch (err) {}
-// }
-//! addDarkClassToHtml();
-
-
-
-
-// function buttonActive() {
-//     const buttons = document.querySelectorAll('.button');
-//     for (const button of buttons) {
-//       button.addEventListener('click', function () {
-//         buttons.forEach(i => i.classList.remove('active-btn'));
-//         this.classList.toggle('active-btn');
-//       });
-//     }
-//   }
+function addDarkClassToHtml() {
+  try {
+    if (localStorage.getItem('theme') === 'dark') {
+      for (const darkMod of darkModEL) {
+        darkMod.classList.add('dark');
+        darkMod.classList.add('dark');
+        document.querySelector('.themetoggle').textContent = '1';
+      }
+    } else {
+      for (const darkMod of darkModEL) {
+        darkMod.classList.remove('dark');
+        darkMod.classList.remove('dark');
+        document.querySelector('.themetoggle').textContent = '2';
+      }
+    }
+  } catch (err) {}
+}
+addDarkClassToHtml();
