@@ -3,7 +3,7 @@ import modalInfoHbs from '../templates/modalInfo.hbs';
 import LocalStorageHandle from './localeStorage';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
-
+import NormalizeDataApi from './normalize-data-api';
 const apiService = new ApiService();
 const localStorageHandle = new LocalStorageHandle();
 
