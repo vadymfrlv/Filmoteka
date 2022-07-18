@@ -30,7 +30,7 @@ function fetchArticles() {
     modal.style.display = 'none';
   }, 3000);
 }
-console.log(fetchArticles());
+
 
 // window.onclick = function (event) {
 //   if (event.target == modal) {

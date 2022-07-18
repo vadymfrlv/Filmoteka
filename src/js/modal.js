@@ -73,19 +73,15 @@ const addEventListeners = () => {
 const onOpenModal = async e => {
   e.preventDefault();
   const idTargetItem = e.target.closest('li').dataset.id;
-
   const fullInfo = await apiService.getFullInfoById(idTargetItem);
 
-  console.log(fullInfo);
   refs.modalContainer.innerHTML = modalInfoHbs(fullInfo);
   const youtubeBtn = document.querySelector('.film__trailer__btn');
   youtubeBtn.addEventListener('click', e => {
     e.preventDefault();
     watchTrailer();
   });
-
   const normalizedInfo = normalizeDataApi.updateDataFilmsLibrary(fullInfo);
-  console.log(normalizedInfo);
   refs.modalContainer.innerHTML = modalInfoHbs(normalizedInfo);
 
   refs.modal.classList.remove('is-hidden');
