@@ -10,8 +10,8 @@ const refs = {
   closeModalBtn: document.querySelector('[data-modal-close]'),
   galleryList: document.querySelector('.gallery__grid'),
   modalContainer: document.querySelector('.modal__container'),
-  btnAddToWatched: document.querySelector('.js-addToWatched'),
-  btnAddToQueue: document.querySelector('.js-addToQueue'),
+  btnAddToWatched: document.querySelector('.js-add-to-watched'),
+  btnAddToQueue: document.querySelector('.js-add-to-queue'),
 };
 
 const modalInfoEventHandle = e => {
