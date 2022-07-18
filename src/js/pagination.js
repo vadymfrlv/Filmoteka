@@ -24,7 +24,8 @@ const pagination = new Pagination(container, {
     currentPage: '<a class="page-btn is-selected">{{page}}</a>',
     page: '<a class="page-btn">{{page}}</a>',
     moveButton: `<button class="move-btn move-btn-{{type}}"></button>`,
-    disabledMoveButton: '<button class="move-btn move-btn-{{type}} disabled" disabled></button>',
+    disabledMoveButton:
+      '<button class="move-btn move-btn-{{type}} disabled" disabled></button>',
     moreButton: '<a class="page-btn next-is-ellip last-child">...</a>',
   },
 });
@@ -43,7 +44,10 @@ async function fetchPerPage(page) {
   const response = await apiService.getTrendingArticles();
   const genres = await apiService.getGenres();
 
-  const normalizedData = await normalizeDataApi.updateDataGenre(response, genres);
+  const normalizedData = await normalizeDataApi.updateDataTranding(
+    response,
+    genres
+  );
 
   galleryListEl.innerHTML = articlesTpl(normalizedData);
   // console.log(response);
