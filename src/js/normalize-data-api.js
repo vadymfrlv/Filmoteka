@@ -23,6 +23,10 @@ class NormalizeDataApi {
           if (el.genre_ids[k] === genres[i].id) {
             el.genre_ids[k] = ' ' + genres[i].name;
           }
+          if (el.genre_ids.length > 2){
+            el.genre_ids.splice(2)
+            el.genre_ids.push(' Other')
+          }
         }
       }
       this.updateReleaseDate(el);
