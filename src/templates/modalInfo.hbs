@@ -3,8 +3,12 @@
   <div class='modal-box'>
     <div>
       <img
+      {{#if poster.path}}
         src='https://image.tmdb.org/t/p/w500{{poster_path}}'
-        alt='post'
+        {{else}}
+        src='../images/poster-notfound/posterholder.jpg'
+        {{/if}}
+        alt='poster'
         min-width='240px'
         min-height='357px'
       /></div>
