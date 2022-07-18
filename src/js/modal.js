@@ -39,7 +39,7 @@ const onOpenModal = async e => {
   const fullInfo = await apiService.getFullInfoById(idTargetItem);
   refs.modalContainer.innerHTML = modalInfoHbs(fullInfo);
   refs.modal.classList.remove('is-hidden');
-  buttonActive();
+
   localStorageHandle.targetDataFilm = fullInfo;
   addEventListeners();
 };
@@ -57,13 +57,3 @@ const onCloseModalKeyboard = e => {
 };
 
 refs.galleryList.addEventListener('click', onOpenModal);
-
-function buttonActive() {
-  const buttons = document.querySelectorAll('.button');
-  for (const button of buttons) {
-    button.addEventListener('click', function () {
-      buttons.forEach(i => i.classList.remove('active-btn'));
-      this.classList.toggle('active-btn');
-    });
-  }
-}
