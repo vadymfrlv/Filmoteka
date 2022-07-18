@@ -9,6 +9,8 @@ class NormalizeDataApi {
 
   updateDataGenreLibrary(data) {
     data.genre_ids = data.genres.map(dataEl => ' ' + dataEl.name);
+    data.genre_ids.splice(2);
+    data.genre_ids.push(' Other');
     return data;
   }
   updateReleaseDate(data) {
@@ -23,9 +25,9 @@ class NormalizeDataApi {
           if (el.genre_ids[k] === genres[i].id) {
             el.genre_ids[k] = ' ' + genres[i].name;
           }
-          if (el.genre_ids.length > 2){
-            el.genre_ids.splice(2)
-            el.genre_ids.push(' Other')
+          if (el.genre_ids.length > 2) {
+            el.genre_ids.splice(2);
+            el.genre_ids.push(' Other');
           }
         }
       }
