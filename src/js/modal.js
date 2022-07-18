@@ -1,7 +1,12 @@
 import ApiService from './api-service';
 import modalInfoHbs from '../templates/modalInfo.hbs';
 import LocalStorageHandle from './localeStorage';
+
+import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basicLightbox.min.css';
+
 import NormalizeDataApi from './normalize-data-api';
+
 
 const apiService = new ApiService();
 const localStorageHandle = new LocalStorageHandle();
@@ -15,6 +20,39 @@ const refs = {
   btnAddToWatched: document.querySelector('.js-add-to-watched'),
   btnAddToQueue: document.querySelector('.js-add-to-queue'),
 };
+
+export function watchTrailer() {
+  let idBtn = document.querySelector('.film__button');
+
+  apiService.movieId = idBtn.dataset.id;
+
+  apiService
+    .getTrailers()
+    .then(data => {
+      let results = data.results[0];
+      let key = results.key;
+      return key;
+    })
+    .then(key => iframeRender(key));
+}
+
+function iframeRender(key) {
+  const BASE_YOUTUBE_URL = 'https://www.youtube.com/embed/';
+  const instance = basicLightbox.create(
+    `<button type="button" id="youtube-close-btn"><i class="fa-regular fa-circle-xmark"></i></button><iframe
+      src="${BASE_YOUTUBE_URL}${key}"?autoplay=1&mute=1&controls=1>
+      </iframe>
+    `,
+    {
+      onShow: instance => {
+        instance.element().querySelector('#youtube-close-btn').onclick =
+          instance.close;
+      },
+    }
+  );
+
+  instance.show();
+}
 
 const modalInfoEventHandle = e => {
   if (e.target.nodeName !== 'BUTTON') return;
@@ -39,9 +77,19 @@ const onOpenModal = async e => {
   const idTargetItem = e.target.closest('li').dataset.id;
 
   const fullInfo = await apiService.getFullInfoById(idTargetItem);
+
+  console.log(fullInfo);
+  refs.modalContainer.innerHTML = modalInfoHbs(fullInfo);
+  const youtubeBtn = document.querySelector('.film__trailer__btn');
+  youtubeBtn.addEventListener('click', e => {
+    e.preventDefault();
+    watchTrailer();
+  });
+
   const normalizedInfo = normalizeDataApi.updateDataFilmsLibrary(fullInfo);
   console.log(normalizedInfo);
   refs.modalContainer.innerHTML = modalInfoHbs(normalizedInfo);
+
   refs.modal.classList.remove('is-hidden');
 
   localStorageHandle.targetDataFilm = normalizedInfo;

@@ -5,3 +5,5 @@ import './js/main';
 import './js/pagination';
 import './js/footer';
 import './js/modal';
+import './js/dark-mod';
+
