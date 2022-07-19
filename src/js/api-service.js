@@ -45,11 +45,32 @@ class ApiService {
     return response.data;
   }
 
+  async getTrailers() {
+    try {
+      let { data } = await axios(`${URL}movie/${this.id}/videos?api_key=${KEY}&language=en-US`, {
+        params: {
+          api_key: KEY,
+        },
+      });
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   get query() {
     return this.searchQuery;
   }
   set query(newSearchQuery) {
     this.searchQuery = newSearchQuery;
+  }
+
+   get movieId() {
+     return this.id;
+  }
+
+   set movieId(newId) {
+     this.id = newId;
   }
 }
 

@@ -1,18 +1,25 @@
-
 <div class='modal__sign'>
   <div class='modal-box'>
-    <div>
+    <div class='pozit-btn-trel'>
       <img
+      {{#if poster_path}}
         src='https://image.tmdb.org/t/p/w500{{poster_path}}'
-        alt='post'
+        {{else}}
+        src='https://raw.githubusercontent.com/vadymfrlv/storage/b4e0abb7f45980d92f3ee2da26a5960181a17f8f/filmoteka/posterholder.jpg'
+        {{/if}}
+        alt='poster'
         min-width='240px'
         min-height='357px'
-      /></div>
+      />
+      <div class='social youtube btn-large btn-primary film__trailer__btn'>
+        <a href='#' target='_blank'><i class='fa fa-youtube fa-2x'></i></a>
+      </div>
+    </div>
     <div class='modal-info'>
       <h2 class='modal__title'>{{title}}</h2>
       <ul class='modal-list'>
         <li class='modal-list__items'>
-          <p>Vote/Votes<span class='reat vote'>{{vote_average}}</span>/<span
+          <p>Vote / Votes<span class='reat vote'>{{vote_average}}</span>/<span
               class='reat'
             >{{vote_count}}</span></p>
         </li>
@@ -24,16 +31,20 @@
             <span class='original-title'>{{original_title}}</span></p>
         </li>
         <li class='modal-list__items'>
-          <p>Genre<span class='genre'>Family</span></p>
+          <p>Genre<span class='genre'>{{genre_ids}}</span></p>
         </li>
       </ul>
       <h3 class='modal__about'>About</h3>
       <p class='modal__text'>{{overview}}</p>
-      <div class='btn'>
-        <button type='button' class='button  js-add-to-watched'>add to Watched</button>
-        <button type='button' class='button queue js-add-to-queue'>add to queue</button>
+      <div class='btn film__button__wrapper'>
+        <button type='button' class='button js-add-to-watched film__button' data-id={{id}}>
+          ADD TO WATCHED</button>
+        <button
+          type='button'
+          class='button js-add-to-queue film__button queue'
+          data-id={{id}}
+        >ADD TO QUEUE</button>
       </div>
     </div>
-
   </div>
 </div>
