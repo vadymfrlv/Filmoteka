@@ -54,11 +54,7 @@
   background-color: var(--main-white-color);
   transform: translate(-50%, -40%);
   transition: transform 250ms linear;
- 
- 
- 
- 
- 
+
   @include mq(tab) {
     width: 704px;
 
@@ -90,7 +86,6 @@
     box-sizing: inherit;
     border-radius: 50%;
     background-color: var(--main-white-color);
-  
 
     border: none;
 
@@ -106,7 +101,15 @@
   }
 }
 
-.dark.modal{ background-color: #8c8c8c;
+body.dark__theme .modal__close {
+  fill: var(--main-white-color);
+  border: 1px solid var(--main-white-color);
+  background-color: transparent;
+}
+
+body.dark__theme .modal {
+  background-color: #0a0819;
+  box-shadow: 0px 0px 45px 7px rgba(255, 0, 27, 0.7);
 }
 
 .modal__sign img {
@@ -142,6 +145,10 @@
   }
 }
 
+body.dark__theme .modal__title {
+  color: var(--main-white-color);
+}
+
 .modal-list {
   margin-bottom: 39px;
 }
@@ -165,6 +172,10 @@
   color: #8c8c8c;
 }
 
+body.dark__theme .modal-list__items p {
+  color: var(--main-white-color);
+}
+
 .modal-list__items span {
   font-family: 'Roboto';
   font-style: normal;
@@ -177,6 +188,10 @@
   color: var(--main-text-color);
 }
 
+body.dark__theme .modal-list__items span {
+  color: var(--main-white-color);
+}
+
 .modal-list__items .reat {
   display: inline-block;
   text-align: center;
@@ -185,7 +200,12 @@
   margin-left: 5px;
   padding: 1px;
   border-radius: 5px;
-  background-color: #f7f7f7;
+  background-color: var(--sec-grey-bgAndPagination-color);
+  color: var(--main-text-color);
+}
+
+body.dark__theme .modal-list__items .reat {
+  color: var(--main-text-color);
 }
 
 .modal-list__items .vote {
@@ -194,27 +214,36 @@
   margin-left: 41px;
   margin-right: 5px;
 
-
   @include mq(desk) {
     margin-left: 85px;
   }
+}
+
+body.dark__theme .modal-list__items .vote {
+  color: var(--main-white-color);
 }
 
 .modal-list__items {
   & .popularity {
     margin-left: 53px;
 
-   
-
     @include mq(desk) {
       margin-left: 98px;
     }
   }
   & .original-title {
+    display: flex;
+    align-items: flex-start;
     margin-left: 39px;
+    max-width: 120px;
+
+    @include mq(tab) {
+      width: 180px;
+    }
 
     @include mq(desk) {
       margin-left: 82px;
+      max-width: 230px;
     }
   }
   & .genre {
@@ -239,14 +268,24 @@
 
   margin-bottom: 8px;
 }
+
+body.dark__theme .modal__about {
+  color: var(--main-white-color);
+}
+
 .modal__text {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
-  line-height: 20px;
+  line-height: 1.66;
+  letter-spacing: 0.06em;
   color: var(--main-text-color);
   margin-bottom: 20px;
+}
+
+body.dark__theme .modal__text {
+  color: var(--main-white-color);
 }
 
 .btn {
@@ -285,7 +324,13 @@
   transition: var(--transition);
 }
 
-.button:hover {
+body.dark__theme .button {
+  color: var(--main-white-color);
+  border: 1px solid var(--main-white-color);
+}
+
+.button:hover,
+.button:focus {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
     0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: var(--btn-accent-color);
@@ -293,22 +338,30 @@
   color: var(--main-white-color);
 }
 
+body.dark__theme .button:hover,
+.button:focus {
+  box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), 0px 4px 4px rgba(255, 255, 255, 0.25),
+    0px 4px 4px rgba(255, 255, 255, 0.25), 0px 4px 4px rgba(255, 255, 255, 0.25);
+  border: var(--btn-accent-color);
+  background-color: var(--btn-accent-color);
+  color: var(--main-white-color);
+}
 
 .social a {
   position: absolute;
   top: 1%;
   left: 1%;
- display: block;
- text-align: center;
- width: 40px;
- height: 40px;
- 
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.15), inset 0 0 50px rgba(0,0,0,0.1);
+  display: block;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+
+  background: var(--main-white-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15), inset 0 0 50px rgba(0, 0, 0, 0.1);
   border-radius: 24px;
   margin: 0 10px 10px 0;
   padding: 6px;
-  color: #fff;
+  color: var(--main-white-color);
   background-color: #fc0d1b;
 
   transition-property: box-shadow, color, background-color, border-color;
@@ -320,6 +373,7 @@
   }
 }
 
-.youtube a:hover {background: #bc0a14; color: #fff;}
-
-
+.youtube a:hover {
+  background: #c80913;
+  color: var(--main-white-color);
+}

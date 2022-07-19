@@ -23,8 +23,7 @@ const paginationSerch = new Pagination(container, {
     currentPage: '<a class="page-btn is-selected">{{page}}</a>',
     page: '<a class="page-btn">{{page}}</a>',
     moveButton: `<button class="move-btn move-btn-{{type}}"></button>`,
-    disabledMoveButton:
-      '<button class="move-btn move-btn-{{type}} disabled" disabled></button>',
+    disabledMoveButton: '<button class="move-btn move-btn-{{type}} disabled" disabled></button>',
     moreButton: '<a class="page-btn next-is-ellip last-child">...</a>',
   },
 });
@@ -56,12 +55,7 @@ async function onSearch(e) {
       return;
     }
     const genres = await apiService.getGenres();
-
-    const normalizedData = await normalizeDataApi.updateDataTranding(
-      data,
-      genres
-    );
-
+    const normalizedData = await normalizeDataApi.updateDataTranding(data, genres);
     renderGallery.renderGalleryMarkup(normalizedData);
     refs.formInput.value = '';
     Loading.remove();
@@ -82,10 +76,7 @@ async function onSearchPerPage(page) {
     return;
   }
   const genres = await apiService.getGenres();
-  const normalizedData = await normalizeDataApi.updateDataTranding(
-    data,
-    genres
-  );
+  const normalizedData = await normalizeDataApi.updateDataTranding(data, genres);
   renderGallery.renderGalleryMarkup(normalizedData);
   window.scroll({
     top: 0,
