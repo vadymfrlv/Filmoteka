@@ -16,7 +16,8 @@ export function watchTrailer() {
       let key = results.key;
       return key;
     })
-    .then(key => iframeRender(key));
+    .then(key => iframeRender(key))
+    .catch(err => console.log(err));
 }
 
 function iframeRender(key) {
