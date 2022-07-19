@@ -1,10 +1,7 @@
-// import { comandFooter } from '../images/footer/comand-footer';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-// import footerTpl from '../templates/footerTpl.hbs';
 import '../sass/index.scss';
 
-// const imgContainer = document.querySelector('.gallery');
 const modal = document.getElementById('myModal');
 const modalCont = document.querySelector('.modal-content');
 
@@ -30,12 +27,6 @@ function fetchArticles() {
     modal.style.display = 'none';
   }, 3000);
 }
-
-// window.onclick = function (event) {
-//   if (event.target == modal) {
-//     modal.style.display = 'none';
-//   }
-// };
 
 new SimpleLightbox('.gallery a', {
   navText: ['&#5130;', '&#5125;'],

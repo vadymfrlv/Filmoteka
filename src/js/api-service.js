@@ -10,9 +10,6 @@ class ApiService {
   }
 
   async getArticlesBySearch() {
-    // axios.defaults.params = {
-
-    // };
     return await axios(`${URL}search/movie`, {
       params: {
         api_key: KEY,
