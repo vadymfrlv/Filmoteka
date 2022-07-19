@@ -4,9 +4,13 @@ import LocalStorageHandle from './localeStorage';
 import articlesTpl from '../templates/articlesTpl.hbs';
 import NormalizeDataApi from './normalize-data-api';
 import {watchTrailer} from './youtube-trailer'
+
+import RenderGallery from './render-gallery';
+
 const apiService = new ApiService();
 const localStorageHandle = new LocalStorageHandle();
 const normalizeDataApi = new NormalizeDataApi();
+const renderGallery = new RenderGallery();
 
 const refs = {
   modal: document.querySelector('[data-modal]'),
@@ -55,36 +59,24 @@ const handleBtnWatched = btn => {
     localStorageHandle.setToWatched();
     btn.classList.add('js-film-watched');
     btn.textContent = 'REMOVE FROM WATCHED';
-    return;
+  } else {
+    localStorageHandle.removeWatchedFilm();
+    btn.classList.remove('js-film-watched');
+    btn.textContent = 'ADD TO WATCHED';
   }
-  localStorageHandle.removeWatchedFilm();
-  btn.classList.remove('js-film-watched');
-  btn.textContent = 'ADD TO WATCHED';
-
-  const watchedFilmsData = localStorageHandle.getLocalStorageWatched();
-  const normalizedData = watchedFilmsData.map(el => {
-    return normalizeDataApi.updateDataFilmsLibrary(el);
-  });
-
-  refs.galleryList.innerHTML = articlesTpl(normalizedData);
+  // renderGallery.renderWatchedLibrary();
 };
 const handleBtnQueue = btn => {
   if (!btn.classList.contains('js-film-queue')) {
     localStorageHandle.setToQueue();
     btn.classList.add('js-film-queue');
     btn.textContent = 'REMOVE FROM QUEUE';
-    return;
+  } else {
+    localStorageHandle.removeQueueFilm();
+    btn.classList.remove('js-film-queue');
+    btn.textContent = 'ADD TO QUEUE';
   }
-  localStorageHandle.removeQueueFilm();
-  btn.classList.remove('js-film-queue');
-  btn.textContent = 'ADD TO QUEUE';
-
-  const queueFilmsData = localStorageHandle.getLocalStorageQueue();
-  const normalizedData = queueFilmsData.map(el => {
-    return normalizeDataApi.updateDataFilmsLibrary(el);
-  });
-
-  refs.galleryList.innerHTML = articlesTpl(normalizedData);
+  // renderGallery.renderQueueLibrary();
 };
 
 const modalInfoEventHandle = e => {
@@ -109,6 +101,9 @@ const onOpenModal = async e => {
   e.preventDefault();
   const idTargetItem = e.target.closest('li').dataset.id;
   const fullInfo = await apiService.getFullInfoById(idTargetItem);
+
+  fullInfo.popularity = normalizeDataApi.updatePopularityLibrary(fullInfo)
+  
   refs.modalContainer.innerHTML = modalInfoHbs(fullInfo);
   // const youtubeBtn = document.querySelector('.film__trailer__btn');
   // youtubeBtn.addEventListener('click', e => {
@@ -124,6 +119,25 @@ const onOpenModal = async e => {
     e.preventDefault();
     watchTrailer();
   });
+
+  const normalizedInfo = normalizeDataApi.updateDataFilmsLibrary(fullInfo);
+  localStorageHandle.targetDataFilm = normalizedInfo;
+
+  refs.modalContainer.innerHTML = modalInfoHbs(normalizedInfo);
+
+  if (localStorageHandle.checkExistFilmsInWatchedLocalStorage(normalizedInfo)) {
+    const btnWatched = document.querySelector('.js-add-to-watched');
+    btnWatched.classList.add('js-film-watched');
+    btnWatched.textContent = 'REMOVE FROM WATCHED';
+  }
+  if (localStorageHandle.checkExistFilmsInQueueLocalStorage(normalizedInfo)) {
+    const btnQueue = document.querySelector('.js-add-to-queue');
+    btnQueue.classList.add('js-film-queue');
+    btnQueue.textContent = 'REMOVE FROM QUEUE';
+  }
+
+  refs.modal.classList.remove('is-hidden');
+
   addEventListeners();
 };
 

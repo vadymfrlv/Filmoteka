@@ -7,6 +7,11 @@ class NormalizeDataApi {
     return data;
   }
 
+  updatePopularityLibrary(data){
+  const pop = Number(data.popularity.toFixed(1))
+   return pop
+  }
+
   updateDataGenreLibrary(data) {
     data.genre_ids = data.genres.map(dataEl => ' ' + dataEl.name);
     data.genre_ids.splice(2);
