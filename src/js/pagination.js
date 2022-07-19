@@ -9,15 +9,15 @@ const apiService = new ApiService();
 const normalizeDataApi = new NormalizeDataApi();
 const galleryListEl = document.querySelector('.gallery__grid');
 
-let windowWidth = null;
+// let cardsQuantity = null;
 
-if (window.innerWidth < 768) windowWidth = 4;
-else if (window.innerWidth < 1200) windowWidth = 8;
-else windowWidth = 9;
+// if (window.innerWidth < 768) cardsQuantity = 4;
+// else if (window.innerWidth < 1200) cardsQuantity = 8;
+// else cardsQuantity = 9;
 
 const container = document.getElementById('tui-pagination-container');
-const pagination = new Pagination(container, {
-  itemsPerPage: 9,
+export const pagination = new Pagination(container, {
+  itemsPerPage: 20,
   visiblePages: 5,
   centerAlign: true,
   template: {
@@ -53,12 +53,11 @@ async function fetchPerPage(page) {
   // console.log(response);
   if (page === 1) pagination.reset(response.total_results);
 
-window.scroll({
-  top: 0,
-  left: 0,
-  behavior: 'smooth'
-});
-
+  window.scroll({
+    top: 0,
+    left: 0,
+    behavior: 'smooth',
+  });
 }
 
 document.onload = fetchPerPage(1);
