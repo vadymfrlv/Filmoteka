@@ -53,7 +53,35 @@ class LocalStorageHandle {
     if (!idsFilmsWatchedLocalStorage.includes(article.id)) return false;
     return true;
   }
-  
+
+  removeWatchedFilm() {
+    const checkExist = this.checkExistFilmsInWatchedLocalStorage(
+      this.targetDataFilm
+    );
+    if (checkExist) {
+      this.watchedDataFilm = this.watchedDataFilm.filter(
+        film => film.id !== this.targetDataFilm.id
+      );
+      localStorage.setItem(
+        WATCED_FILMS_KEY,
+        JSON.stringify(this.watchedDataFilm)
+      );
+    }
+  }
+  removeQueueFilm() {
+    const checkExist = this.checkExistFilmsInQueueLocalStorage(
+      this.targetDataFilm
+    );
+    if (checkExist) {
+      this.queueDataFilms = this.queueDataFilms.filter(
+        film => film.id !== this.targetDataFilm.id
+      );
+      localStorage.setItem(
+        QUEUE_FILMS_KEY,
+        JSON.stringify(this.queueDataFilms)
+      );
+    }
+  }
 }
 
 export default LocalStorageHandle;

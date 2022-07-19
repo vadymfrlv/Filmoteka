@@ -1,7 +1,7 @@
 import ApiService from './api-service';
 import modalInfoHbs from '../templates/modalInfo.hbs';
 import LocalStorageHandle from './localeStorage';
-
+import articlesTpl from '../templates/articlesTpl.hbs';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import NormalizeDataApi from './normalize-data-api';
@@ -52,13 +52,50 @@ function iframeRender(key) {
   instance.show();
 }
 
+const handleBtnWatched = btn => {
+  if (!btn.classList.contains('js-film-watched')) {
+    localStorageHandle.setToWatched();
+    btn.classList.add('js-film-watched');
+    btn.textContent = 'REMOVE FROM WATCHED';
+    return;
+  }
+  localStorageHandle.removeWatchedFilm();
+  btn.classList.remove('js-film-watched');
+  btn.textContent = 'ADD TO WATCHED';
+
+  const watchedFilmsData = localStorageHandle.getLocalStorageWatched();
+  const normalizedData = watchedFilmsData.map(el => {
+    return normalizeDataApi.updateDataFilmsLibrary(el);
+  });
+
+  refs.galleryList.innerHTML = articlesTpl(normalizedData);
+};
+const handleBtnQueue = btn => {
+  if (!btn.classList.contains('js-film-queue')) {
+    localStorageHandle.setToQueue();
+    btn.classList.add('js-film-queue');
+    btn.textContent = 'REMOVE FROM QUEUE';
+    return;
+  }
+  localStorageHandle.removeQueueFilm();
+  btn.classList.remove('js-film-queue');
+  btn.textContent = 'ADD TO QUEUE';
+
+  const queueFilmsData = localStorageHandle.getLocalStorageQueue();
+  const normalizedData = queueFilmsData.map(el => {
+    return normalizeDataApi.updateDataFilmsLibrary(el);
+  });
+
+  refs.galleryList.innerHTML = articlesTpl(normalizedData);
+};
+
 const modalInfoEventHandle = e => {
   if (e.target.nodeName !== 'BUTTON') return;
   if (e.target.classList.contains('js-add-to-watched')) {
-    localStorageHandle.setToWatched();
+    handleBtnWatched(e.target);
   }
   if (e.target.classList.contains('js-add-to-queue')) {
-    localStorageHandle.setToQueue();
+    handleBtnQueue(e.target);
   }
 };
 
@@ -83,9 +120,7 @@ const onOpenModal = async e => {
   });
   const normalizedInfo = normalizeDataApi.updateDataFilmsLibrary(fullInfo);
   refs.modalContainer.innerHTML = modalInfoHbs(normalizedInfo);
-
   refs.modal.classList.remove('is-hidden');
-
   localStorageHandle.targetDataFilm = normalizedInfo;
   addEventListeners();
 };
