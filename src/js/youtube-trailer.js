@@ -13,7 +13,6 @@ export function watchTrailer() {
     .getTrailers()
     .then(data => {
       let results = data.results[0];
-      console.log(results);
       let key = results.key;
       return key;
     })
@@ -25,7 +24,7 @@ function iframeRender(key) {
   const instance = basicLightbox.create(
     `<button type="button" id="youtube-close-btn"><i class="fa-regular fa-circle-xmark"></i></button>
       <iframe
-        src="${BASE_YOUTUBE_URL}${key}?autoplay=1&mute=1&controls=1>
+        src="${BASE_YOUTUBE_URL}${key}?autoplay=1"&mute=1&controls=1>
       </iframe> 
     `,
     {
