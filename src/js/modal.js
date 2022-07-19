@@ -3,7 +3,7 @@ import modalInfoHbs from '../templates/modalInfo.hbs';
 import LocalStorageHandle from './localeStorage';
 import articlesTpl from '../templates/articlesTpl.hbs';
 import NormalizeDataApi from './normalize-data-api';
-import {watchTrailer} from './youtube-trailer'
+import { watchTrailer } from './youtube-trailer';
 
 import RenderGallery from './render-gallery';
 
@@ -102,8 +102,8 @@ const onOpenModal = async e => {
   const idTargetItem = e.target.closest('li').dataset.id;
   const fullInfo = await apiService.getFullInfoById(idTargetItem);
 
-  fullInfo.popularity = normalizeDataApi.updatePopularityLibrary(fullInfo)
-  
+  fullInfo.popularity = normalizeDataApi.updatePopularityLibrary(fullInfo);
+
   refs.modalContainer.innerHTML = modalInfoHbs(fullInfo);
   // const youtubeBtn = document.querySelector('.film__trailer__btn');
   // youtubeBtn.addEventListener('click', e => {
@@ -114,16 +114,6 @@ const onOpenModal = async e => {
   refs.modalContainer.innerHTML = modalInfoHbs(normalizedInfo);
   refs.modal.classList.remove('is-hidden');
   localStorageHandle.targetDataFilm = normalizedInfo;
-  const youtubeBtn = document.querySelector('.film__trailer__btn');
-  youtubeBtn.addEventListener('click', e => {
-    e.preventDefault();
-    watchTrailer();
-  });
-
-  const normalizedInfo = normalizeDataApi.updateDataFilmsLibrary(fullInfo);
-  localStorageHandle.targetDataFilm = normalizedInfo;
-
-  refs.modalContainer.innerHTML = modalInfoHbs(normalizedInfo);
 
   if (localStorageHandle.checkExistFilmsInWatchedLocalStorage(normalizedInfo)) {
     const btnWatched = document.querySelector('.js-add-to-watched');
@@ -139,6 +129,12 @@ const onOpenModal = async e => {
   refs.modal.classList.remove('is-hidden');
 
   addEventListeners();
+
+  const youtubeBtn = document.querySelector('.film__trailer__btn');
+  youtubeBtn.addEventListener('click', e => {
+    e.preventDefault();
+    watchTrailer();
+  });
 };
 
 const onCloseModal = e => {
