@@ -1,22 +1,3 @@
-// const myButton = document.getElementById('myBtnUp');
-
-// window.onscroll = function () {
-//   scrollFunction();
-// };
-
-// function scrollFunction() {
-//   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-//     myButton.style.display = 'block';
-//   } else {
-//     myButton.style.display = 'none';
-//   }
-// }
-
-// myButton.onclick = function () {
-//   document.body.scrollTop = 0;
-//   document.documentElement.scrollTop = 0;
-// };
-
 const showOnPx = 100;
 const backToTopButton = document.querySelector('.back-to-top');
 const pageProgressBar = document.querySelector('.progress-bar');
@@ -32,8 +13,6 @@ const goToTop = () => {
 };
 
 document.addEventListener('scroll', () => {
-  //   console.log('Scroll Height: ', scrollContainer().scrollHeight);
-  //   console.log('Client Height: ', scrollContainer().clientHeight);
 
   const scrolledPercentage =
     (scrollContainer().scrollTop /

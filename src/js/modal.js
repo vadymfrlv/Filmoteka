@@ -1,7 +1,6 @@
 import ApiService from './api-service';
 import modalInfoHbs from '../templates/modalInfo.hbs';
 import LocalStorageHandle from './localeStorage';
-import articlesTpl from '../templates/articlesTpl.hbs';
 import NormalizeDataApi from './normalize-data-api';
 import { onWatchTrailer } from './youtube-trailer';
 import RenderGallery from './render-gallery';
@@ -20,8 +19,6 @@ const refs = {
   btnAddToQueue: document.querySelector('.js-add-to-queue'),
 };
 
-
-
 const handleBtnWatched = btn => {
   if (!btn.classList.contains('js-film-watched')) {
     localStorageHandle.setToWatched();
@@ -32,7 +29,9 @@ const handleBtnWatched = btn => {
     btn.classList.remove('js-film-watched');
     btn.textContent = 'ADD TO WATCHED';
   }
-  // renderGallery.renderWatchedLibrary();
+  if (refs.galleryList.classList.contains('js-library')) {
+    renderGallery.renderWatchedLibrary();
+  }
 };
 const handleBtnQueue = btn => {
   if (!btn.classList.contains('js-film-queue')) {
@@ -44,7 +43,9 @@ const handleBtnQueue = btn => {
     btn.classList.remove('js-film-queue');
     btn.textContent = 'ADD TO QUEUE';
   }
-  // renderGallery.renderQueueLibrary();
+  if (refs.galleryList.classList.contains('js-library')) {
+    renderGallery.renderQueueLibrary();
+  }
 };
 
 const modalInfoEventHandle = e => {

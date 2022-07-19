@@ -1,7 +1,6 @@
 import NormalizeDataApi from './normalize-data-api';
 import articlesTpl from '../templates/articlesTpl.hbs';
 import Pagination from 'tui-pagination';
-import ApiService from './api-service';
 import LocalStorageHandle from './localeStorage';
 import RenderGallery from './render-gallery';
 
@@ -17,7 +16,6 @@ const container = document.getElementById('tui-pagination-container');
 const renderGallery = new RenderGallery();
 const normalizeDataApi = new NormalizeDataApi();
 const localStorageHandle = new LocalStorageHandle();
-const apiService = new ApiService();
 
 let cardsQuantity = null;
 
@@ -49,6 +47,7 @@ let libraryData = null;
 const startPaginationWithFirstRender = () => {
   const firstPageData = libraryData.slice(0, cardsQuantity);
   refs.galleryList.innerHTML = articlesTpl(firstPageData);
+  refs.galleryList.classList.add('js-library');
   paginationLibrary.reset(libraryData.length);
 };
 
@@ -73,7 +72,6 @@ const onLinkPageLibrary = async e => {
 };
 
 async function onLibPerPage(page) {
-  // console.log(page);
   const currentPageData = libraryData.slice(
     (page - 1) * cardsQuantity,
     page * cardsQuantity
@@ -81,7 +79,6 @@ async function onLibPerPage(page) {
 
   window.scrollTo({
     top: 0,
-    // behavior: 'smooth',
   });
   renderGallery.renderGalleryMarkup(currentPageData);
 }

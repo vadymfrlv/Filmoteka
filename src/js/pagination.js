@@ -2,18 +2,10 @@ import Pagination from 'tui-pagination';
 import ApiService from './api-service';
 import NormalizeDataApi from './normalize-data-api';
 import articlesTpl from '../templates/articlesTpl.hbs';
-// import HandleQueryTrendingApi from './handle-query-trending-api';
 
-// const handleQueryTrendingApi = new HandleQueryTrendingApi();
 const apiService = new ApiService();
 const normalizeDataApi = new NormalizeDataApi();
 const galleryListEl = document.querySelector('.gallery__grid');
-
-// let cardsQuantity = null;
-
-// if (window.innerWidth < 768) cardsQuantity = 4;
-// else if (window.innerWidth < 1200) cardsQuantity = 8;
-// else cardsQuantity = 9;
 
 const container = document.getElementById('tui-pagination-container');
 export const pagination = new Pagination(container, {
@@ -39,8 +31,6 @@ async function fetchPerPage(page) {
   apiService.query = '';
   apiService.page = page;
 
-  // const response = await handleQueryTrendingApi.handleQueryTrendingDataApi();
-
   const response = await apiService.getTrendingArticles();
   const genres = await apiService.getGenres();
 
@@ -50,7 +40,7 @@ async function fetchPerPage(page) {
   );
 
   galleryListEl.innerHTML = articlesTpl(normalizedData);
-  // console.log(response);
+
   if (page === 1) pagination.reset(response.total_results);
 
   window.scroll({
