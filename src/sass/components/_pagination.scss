@@ -1,12 +1,11 @@
-
 .tui-pagination {
   justify-content: center;
   margin-bottom: 60px;
-  
 }
 
-.move-btn-first, .move-btn-last {
-display: none;
+.move-btn-first,
+.move-btn-last {
+  display: none;
 }
 
 .move-btn-prev {
@@ -15,12 +14,16 @@ display: none;
   background-repeat: no-repeat;
   background-size: 16px;
   border-radius: 5px;
-  background-color: #f7f7f7;
+  background-color: var(--sec-grey-bgAndPagination-color);
   border: none;
   width: 40px;
   height: 40px;
   margin-right: 10px;
   cursor: pointer;
+}
+
+body.dark__theme .move-btn-prev {
+  background-color: var(--main-white-color);
 }
 
 .move-btn-next {
@@ -29,13 +32,14 @@ display: none;
   background-repeat: no-repeat;
   background-size: 16px;
   border-radius: 5px;
-  background-color: #f7f7f7;
+  background-color: var(--sec-grey-bgAndPagination-color);
   border: none;
   width: 40px;
   height: 40px;
   margin-left: 10px;
   cursor: pointer;
 }
+
 .tui-pagination {
   display: flex;
 }
@@ -52,9 +56,12 @@ display: none;
   cursor: pointer;
 }
 
+body.dark__theme .page-btn {
+  color: var(--main-white-color);
+}
 
 .is-selected {
-  color: #ffffff;
-  background: #FF6B08;
+  color: var(--main-white-color);
+  background: var(--text-accent-color);
   cursor: pointer;
 }
