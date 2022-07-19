@@ -105,6 +105,16 @@ body.dark__theme .modal__close {
   fill: var(--main-white-color);
   border: 1px solid var(--main-white-color);
   background-color: transparent;
+
+  transition-property: fill border;
+  transition: var(--transition);
+  
+    &:hover,
+    &:focus {
+      transform: rotate(-360deg);
+      border: 1px solid rgba(255, 0, 27, 0.7);
+      fill:rgba(255, 0, 27, 0.7);
+    }
 }
 
 body.dark__theme .modal {
@@ -340,8 +350,8 @@ body.dark__theme .button {
 
 body.dark__theme .button:hover,
 .button:focus {
-  box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), 0px 4px 4px rgba(255, 255, 255, 0.25),
-    0px 4px 4px rgba(255, 255, 255, 0.25), 0px 4px 4px rgba(255, 255, 255, 0.25);
+  box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.25), 0px 2px 4px rgba(255, 255, 255, 0.25),
+    0px 2px 4px rgba(255, 255, 255, 0.25), 0px 2px 4px rgba(255, 255, 255, 0.25);
   border: var(--btn-accent-color);
   background-color: var(--btn-accent-color);
   color: var(--main-white-color);

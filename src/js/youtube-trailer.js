@@ -28,10 +28,18 @@ function iframeRender(key) {
     `,
     {
       onShow: instance => {
-        instance.element().querySelector('#youtube-close-btn').onclick = instance.close;
+        instance.element().querySelector('#youtube-close-btn').onclick =
+          instance.close;
       },
     }
   );
 
   instance.show();
 }
+export const onWatchTrailer = e => {
+  const youtubeBtn = document.querySelector('.film__trailer__btn');
+  youtubeBtn.addEventListener('click', e => {
+    e.preventDefault();
+    watchTrailer();
+  });
+};
