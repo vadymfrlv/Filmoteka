@@ -102,6 +102,8 @@ const onOpenModal = async e => {
   const idTargetItem = e.target.closest('li').dataset.id;
   const fullInfo = await apiService.getFullInfoById(idTargetItem);
 
+  fullInfo.popularity = normalizeDataApi.updatePopularityLibrary(fullInfo)
+  
   refs.modalContainer.innerHTML = modalInfoHbs(fullInfo);
   const youtubeBtn = document.querySelector('.film__trailer__btn');
   youtubeBtn.addEventListener('click', e => {
