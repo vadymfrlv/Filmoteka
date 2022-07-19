@@ -20,8 +20,6 @@ const refs = {
   btnAddToQueue: document.querySelector('.js-add-to-queue'),
 };
 
-
-
 const handleBtnWatched = btn => {
   if (!btn.classList.contains('js-film-watched')) {
     localStorageHandle.setToWatched();
@@ -91,6 +89,7 @@ const onOpenModal = async e => {
   }
 
   refs.modal.classList.remove('is-hidden');
+  document.body.classList.add('no-scroll');
 
   addEventListeners();
   onWatchTrailer();
@@ -98,6 +97,7 @@ const onOpenModal = async e => {
 
 const onCloseModal = e => {
   refs.modal.classList.add('is-hidden');
+  document.body.classList.remove('no-scroll');
   window.removeEventListener('keydown', onCloseModalKeyboard);
 };
 
@@ -105,6 +105,7 @@ const onCloseModalKeyboard = e => {
   const isEscKey = e.code === 'Escape';
   if (!isEscKey) return;
   refs.modal.classList.add('is-hidden');
+  document.body.classList.remove('no-scroll');
   window.removeEventListener('keydown', onCloseModalKeyboard);
 };
 
@@ -113,6 +114,7 @@ backdropEl.addEventListener('click', onCloseModalClickBackdrop);
 function onCloseModalClickBackdrop(e) {
   if (e.target !== backdropEl) return;
   refs.modal.classList.add('is-hidden');
+  document.body.classList.remove('no-scroll');
 }
 
 refs.galleryList.addEventListener('click', onOpenModal);

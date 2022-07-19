@@ -44,7 +44,7 @@
 }
 .modal {
   position: absolute;
-  top: 50%;
+  top: 69%;
   left: 50%;
   padding: 48px;
   padding-left: 20px;
@@ -56,6 +56,7 @@
   transition: transform 250ms linear;
 
   @include mq(tab) {
+    top: 50%;
     width: 704px;
 
     padding: 40px;
@@ -89,7 +90,7 @@
 
     border: none;
 
-    transition-property: fill border;
+    transition-property: fill, border;
     transition: var(--transition);
 
     &:hover,
@@ -106,15 +107,15 @@ body.dark__theme .modal__close {
   border: 1px solid var(--main-white-color);
   background-color: transparent;
 
-  transition-property: fill border;
+  transition-property: fill, border;
   transition: var(--transition);
-  
-    &:hover,
-    &:focus {
-      transform: rotate(-360deg);
-      border: 1px solid rgba(255, 0, 27, 0.7);
-      fill:rgba(255, 0, 27, 0.7);
-    }
+
+  &:hover,
+  &:focus {
+    transform: rotate(-360deg);
+    border: 1px solid rgba(255, 0, 27, 0.7);
+    fill: rgba(255, 0, 27, 0.7);
+  }
 }
 
 body.dark__theme .modal {
