@@ -1,0 +1,67 @@
+.tui-pagination {
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.move-btn-first,
+.move-btn-last {
+  display: none;
+}
+
+.move-btn-prev {
+  background-image: url('./../images/arrows/prev.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  border-radius: 5px;
+  background-color: var(--sec-grey-bgAndPagination-color);
+  border: none;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+body.dark__theme .move-btn-prev {
+  background-color: var(--main-white-color);
+}
+
+.move-btn-next {
+  background-image: url('./../images/arrows/next.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  border-radius: 5px;
+  background-color: var(--sec-grey-bgAndPagination-color);
+  border: none;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.tui-pagination {
+  display: flex;
+}
+
+.page-btn {
+  font-weight: 500;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+body.dark__theme .page-btn {
+  color: var(--main-white-color);
+}
+
+.is-selected {
+  color: var(--main-white-color);
+  background: var(--text-accent-color);
+  cursor: pointer;
+}

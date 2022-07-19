@@ -1,0 +1,346 @@
+.header-home {
+  position: relative;
+  height: 230px;
+  width: 100%;
+  // max-width: 1280px;
+  margin-right: auto;
+  margin-bottom: 20px;
+  margin-left: auto;
+  padding-top: 40px;
+  padding-bottom: 92px;
+
+  @include mq(tab) {
+    height: 219px;
+    margin-bottom: 60px;
+    padding-bottom: 80px;
+  }
+
+  @include mq(desk) {
+    height: 216px;
+  }
+}
+
+.header-library {
+  position: relative;
+  height: 230px;
+  width: 100%;
+  // max-width: 1280px;
+  margin-right: auto;
+  margin-bottom: 20px;
+  margin-left: auto;
+  padding-top: 40px;
+  padding-bottom: 62px;
+
+  @include mq(tab) {
+    height: 219px;
+    margin-bottom: 60px;
+    padding-bottom: 60px;
+  }
+
+  @include mq(desk) {
+    height: 216px;
+  }
+}
+
+.header-bg-home {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(../images/header-home/mob.jpg);
+
+  @include mq(retina) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url(../images/header-home/mob2x.jpg);
+  }
+
+  @include mq(tab) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url(../images/header-home/tab.jpg);
+
+    @include mq(retina) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url(../images/header-home/tab2x.jpg);
+    }
+  }
+
+  @include mq(desk) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url(../images/header-home/desk.jpg);
+
+    @include mq(retina) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url(../images/header-home/desk2x.jpg);
+    }
+  }
+}
+
+body.dark__theme .header-bg-home {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(../images/header-home/darkmode.jpg);
+}
+
+.header-bg-library {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../images/header-library/mob.jpg);
+
+  @include mq(retina) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header-library/mob2x.jpg);
+  }
+
+  @include mq(tab) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header-library/tab.jpg);
+
+    @include mq(retina) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/header-library/tab2x.jpg);
+    }
+  }
+
+  @include mq(desk) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header-library/desk.jpg);
+
+    @include mq(retina) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/header-library/desk2x.jpg);
+    }
+  }
+}
+
+.logo {
+  width: 24px;
+  height: 24px;
+
+  fill: var(--main-white-color);
+}
+
+.logo__text {
+  margin-left: 10px;
+
+  font-size: 30px;
+  line-height: 1.16px;
+
+  color: var(--main-white-color);
+
+  @include mq(mob-only) {
+    display: none;
+  }
+}
+
+.navi {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 46px;
+
+  @include mq(tab) {
+    margin-bottom: 43px;
+  }
+}
+
+.page-link {
+  display: flex;
+  align-items: center;
+}
+
+.navi__list {
+  display: flex;
+
+  :not(:last-child) {
+    margin-right: 40px;
+  }
+}
+
+.navi__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  font-size: var(--main-font-size);
+  line-height: 1.16px;
+  text-transform: uppercase;
+
+  color: var(--main-white-color);
+  transition: var(--transition);
+
+  &:hover,
+  &:focus {
+    color: var(--text-accent-color);
+  }
+}
+
+.current::after {
+  content: '';
+  position: absolute;
+  bottom: -9px;
+
+  width: 100%;
+  height: 3px;
+
+  background-color: var(--sec-red-color);
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+}
+
+.form__input {
+  display: flex;
+  align-items: center;
+  width: 280px;
+  height: 20px;
+
+  padding-bottom: 6px;
+  padding-right: 20px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+
+  border: none;
+  outline: none;
+  color: var(--main-white-color);
+  background-color: transparent;
+  border-bottom: 0.5px solid var(--main-white-color);
+
+  @include mq(tab) {
+    width: 336px;
+  }
+
+  @include mq(desk) {
+    width: 396px;
+  }
+}
+
+.form__input::placeholder {
+  display: flex;
+  align-items: center;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.17;
+
+  color: var(--main-white-color);
+}
+
+.form {
+  position: relative;
+}
+
+.form__icon {
+  display: block;
+  width: 12px;
+  height: 12px;
+}
+
+.form__btn {
+  position: absolute;
+  top: 0;
+  right: -1px;
+
+  width: 20px;
+  height: 20px;
+  padding-bottom: 6px;
+
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.form__warning {
+  position: absolute;
+  width: 281px;
+  margin-top: 20px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: left;
+
+  color: var(--sec-red-color);
+
+  @include mq(tab) {
+    width: 336px;
+    text-align: center;
+  }
+
+  @include mq(desk) {
+    width: 394;
+  }
+}
+
+.lib__btns {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include mq(tab) {
+    margin-top: 8px;
+  }
+
+  @include mq(desk) {
+    margin-top: 7px;
+  }
+}
+
+.lib__btn {
+  width: 130px;
+  height: 44px;
+
+  font-size: var(--main-font-size);
+  line-height: var(--main-line-height);
+  text-transform: uppercase;
+  color: var(--main-white-color);
+
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid var(--main-white-color);
+  transition: var(--transition);
+  filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
+
+  &:focus,
+  &:hover {
+    background-color: var(--btn-accent-color);
+    border-color: var(--btn-accent-color);
+  }
+
+  @include mq(tab) {
+    width: 152px;
+  }
+
+  @include mq(desk) {
+    width: 148px;
+    height: 42px;
+  }
+}
+
+.lib__btn:not(:last-child) {
+  margin-right: 20px;
+
+  @include mq(tab) {
+    margin-right: 32px;
+  }
+
+  @include mq(desk) {
+    margin-right: 16px;
+  }
+}
+
+.active-btn {
+  background-color: var(--btn-accent-color);
+  border-color: var(--btn-accent-color);
+}

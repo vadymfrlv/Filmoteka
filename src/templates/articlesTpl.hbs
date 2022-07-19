@@ -1,11 +1,16 @@
- 
  {{#each this}}
- <li class="gallery__item">
+ <li class="gallery__item" data-id="{{id}}">
         <a class="gallery__link" href="#">
-          <img class="gallery__img" srcset="" sizes="" src="https://api.themoviedb.org/3{{poster_path}}/api_key=82c59d753050746a09d77670604a0453" alt="" width="395" height="574">
+          <img 
+          {{#if poster_path}}
+          src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+          {{else}}
+          src='https://raw.githubusercontent.com/vadymfrlv/storage/b4e0abb7f45980d92f3ee2da26a5960181a17f8f/filmoteka/posterholder.jpg'
+          {{/if}}
+          class="gallery__img" alt="poster" width="395" height="574">
           <div class="gallery__thumb">
             <h2 class="gallery__film-name">{{title}}</h2>
-            <p class="gallery__film-text-about">Drama, Action | {{release_date}}</p>
+            <p class="gallery__film-text-about"> {{genre_ids}} | {{release_date}}</p>
           </div>
         </a>
       </li>
