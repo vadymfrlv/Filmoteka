@@ -4,11 +4,16 @@ import LocalStorageHandle from './localeStorage';
 import NormalizeDataApi from './normalize-data-api';
 import { onWatchTrailer } from './youtube-trailer';
 import RenderGallery from './render-gallery';
+import Pagination from 'tui-pagination';
+
+// import { removePaginationWithFirstRender } from './myLibrary';
 
 const apiService = new ApiService();
 const localStorageHandle = new LocalStorageHandle();
 const normalizeDataApi = new NormalizeDataApi();
 const renderGallery = new RenderGallery();
+
+const container = document.getElementById('tui-pagination-container');
 
 const refs = {
   modal: document.querySelector('[data-modal]'),
@@ -33,6 +38,10 @@ const handleBtnWatched = btn => {
     refs.galleryList.classList.contains('js-library') &&
     !refs.galleryList.classList.contains('js-queue')
   ) {
+    // const checkLocalStorage = localStorageHandle.getLocalStorageWatched();
+    // if (checkLocalStorage.length === 0) {
+    //   container.remove();
+    // }
     renderGallery.renderWatchedLibrary();
   }
 };
@@ -50,6 +59,10 @@ const handleBtnQueue = btn => {
     refs.galleryList.classList.contains('js-library') &&
     refs.galleryList.classList.contains('js-queue')
   ) {
+    // const checkLocalStorage = localStorageHandle.getLocalStorageQueue();
+    // if (checkLocalStorage.length === 0) {
+    //   container.remove();
+    // }
     renderGallery.renderQueueLibrary();
   }
 };
