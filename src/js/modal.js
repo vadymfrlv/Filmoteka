@@ -29,7 +29,10 @@ const handleBtnWatched = btn => {
     btn.classList.remove('js-film-watched');
     btn.textContent = 'ADD TO WATCHED';
   }
-  if (refs.galleryList.classList.contains('js-library')) {
+  if (
+    refs.galleryList.classList.contains('js-library') &&
+    !refs.galleryList.classList.contains('js-queue')
+  ) {
     renderGallery.renderWatchedLibrary();
   }
 };
@@ -43,7 +46,10 @@ const handleBtnQueue = btn => {
     btn.classList.remove('js-film-queue');
     btn.textContent = 'ADD TO QUEUE';
   }
-  if (refs.galleryList.classList.contains('js-library')) {
+  if (
+    refs.galleryList.classList.contains('js-library') &&
+    refs.galleryList.classList.contains('js-queue')
+  ) {
     renderGallery.renderQueueLibrary();
   }
 };
