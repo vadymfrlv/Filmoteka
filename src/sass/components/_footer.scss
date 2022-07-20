@@ -55,7 +55,7 @@ body.dark__theme .footer__item {
   content: '';
   position: absolute;
   left: -9px;
-  width: 25px;
+  width: 2px;
   height: 17px;
   background-color: var(--sec-text-color);
   display: block;
@@ -180,4 +180,8 @@ body.dark__theme .footer__link::before {
   .fotter__heart {
     margin-right: 15px;
   }
+}
+
+footer {
+  margin-top: auto;
 }
