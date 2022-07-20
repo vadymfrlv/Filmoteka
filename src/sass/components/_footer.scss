@@ -4,8 +4,9 @@ footer {
 
 body.dark__theme footer {
   background-color: #0a0819;
-  box-shadow: 0px 1px 58px 12px rgba(255, 0, 27, 0.5), 1px 2px 4px 0px rgba(255, 0, 27, 0.5),
-    2px 4px 8px 0px rgba(255, 0, 27, 0.5), 2px 4px 16px 0px rgba(255, 0, 27, 0.5);
+  box-shadow: 0px 1px 58px 12px rgba(255, 0, 27, 0.5),
+    1px 2px 4px 0px rgba(255, 0, 27, 0.5), 2px 4px 8px 0px rgba(255, 0, 27, 0.5),
+    2px 4px 16px 0px rgba(255, 0, 27, 0.5);
 }
 
 .section {
@@ -138,6 +139,11 @@ body.dark__theme .footer__link::before {
   color: var(--sec-red-color);
 }
 
+body.dark__theme .footer__link:hover,
+body.dark__theme .footer__link:focus {
+  color: var(--sec-red-color);
+}
+
 @include mq(tab) {
   .footer {
     display: flex;
@@ -180,4 +186,8 @@ body.dark__theme .footer__link::before {
   .fotter__heart {
     margin-right: 15px;
   }
+}
+
+footer {
+  margin-top: auto;
 }

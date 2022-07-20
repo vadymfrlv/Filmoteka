@@ -77,3 +77,8 @@ body.dark__theme .gallery__film-name {
     transform: scale(1.05);
   }
 }
+ body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+ }

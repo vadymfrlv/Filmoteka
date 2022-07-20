@@ -1,6 +1,11 @@
 .tui-pagination {
   justify-content: center;
   margin-bottom: 60px;
+  display: flex;
+}
+
+.js-pagination-remove {
+  display: none;
 }
 
 .move-btn-first,
@@ -38,10 +43,6 @@ body.dark__theme .move-btn-prev {
   height: 40px;
   margin-left: 10px;
   cursor: pointer;
-}
-
-.tui-pagination {
-  display: flex;
 }
 
 .page-btn {

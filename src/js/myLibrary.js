@@ -48,6 +48,7 @@ const startPaginationWithFirstRender = () => {
   const firstPageData = libraryData.slice(0, cardsQuantity);
   refs.galleryList.innerHTML = articlesTpl(firstPageData);
   refs.galleryList.classList.add('js-library');
+  refs.galleryList.classList.add('js-watched');
   paginationLibrary.reset(libraryData.length);
 };
 
@@ -56,6 +57,7 @@ const btnPageQueueHandler = () => {
   libraryData = queueFilmsData.map(el => {
     return normalizeDataApi.updateDataFilmsLibrary(el);
   });
+  refs.galleryList.classList.add('js-queue');
   startPaginationWithFirstRender();
 };
 
@@ -64,6 +66,7 @@ const btnPageWatchedHandler = () => {
   libraryData = watchedFilmsData.map(el => {
     return normalizeDataApi.updateDataFilmsLibrary(el);
   });
+  refs.galleryList.classList.remove('js-queue');
   startPaginationWithFirstRender();
 };
 
@@ -82,6 +85,12 @@ async function onLibPerPage(page) {
   });
   renderGallery.renderGalleryMarkup(currentPageData);
 }
+
+// const removePaginationWithFirstRender = () => {
+//   // console.log('oops');
+//   // console.log(libraryData);
+//   if (libraryData.length === 0) container.remove();
+// };
 
 refs.linkPageLibrary.addEventListener('click', onLinkPageLibrary);
 refs.btnPageQueue.addEventListener('click', btnPageQueueHandler);

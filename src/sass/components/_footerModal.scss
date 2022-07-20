@@ -81,21 +81,43 @@
 }
 
 .modal-body {
-  padding: 2px 16px;
-  display: flex;
-  justify-content: space-evenly;
+  // padding: 2px 16px;
+  // display: flex;
+  // justify-content: space-evenly;
+
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 10px;
 }
+
+@include mq(tab) {
+  .modal-body {
+    // padding: 2px 16px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
 .modal-card {
   animation-duration: 5s;
 
   text-align: center;
 }
 .modal-card img {
+  width: 80px;
   border-radius: 10px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
 }
+@include mq(tab) {
+  .modal-card img {
+    width: 150px;
+  }
+}
+
 .modal-card div {
+  // display: none;
+  width: 80px;
   margin-top: 10px;
   background-color: #fefefe;
   font-style: normal;
@@ -107,6 +129,25 @@
   border-radius: 10px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.modal-card p {
+  display: none;
+}
+@include mq(tab) {
+  .modal-card p {
+    display: block;
+  }
+  .modal-card div {
+    width: auto;
+  }
+}
+.modal-card .developer {
+  display: block;
+}
+@include mq(tab) {
+  .modal-card .developer {
+    display: none;
+  }
 }
 .modal-card.gallery {
   $sl-overlay-background: red;
