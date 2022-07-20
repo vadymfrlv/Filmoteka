@@ -1,6 +1,6 @@
 .back-to-top {
   position: fixed;
-  bottom: 137px;
+  bottom: 107px;
   right: 30px;
   border-radius: 100%;
   //   background: #141c38;
@@ -28,6 +28,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+@include mq(tab) {
+  .back-to-top {
+    bottom: 137px;
+  }
 }
 
 .back-to-top:hover {
