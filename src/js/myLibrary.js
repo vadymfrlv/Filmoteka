@@ -56,7 +56,9 @@ const btnPageQueueHandler = () => {
   libraryData = queueFilmsData.map(el => {
     return normalizeDataApi.updateDataFilmsLibrary(el);
   });
+
   startPaginationWithFirstRender();
+  removePaginationWithFirstRender;
 };
 
 const btnPageWatchedHandler = () => {
@@ -65,10 +67,13 @@ const btnPageWatchedHandler = () => {
     return normalizeDataApi.updateDataFilmsLibrary(el);
   });
   startPaginationWithFirstRender();
+  removePaginationWithFirstRender;
 };
 
 const onLinkPageLibrary = async e => {
   btnPageWatchedHandler();
+  removePaginationWithFirstRender();
+  // startPaginationWithFirstRender();
 };
 
 async function onLibPerPage(page) {
@@ -82,6 +87,12 @@ async function onLibPerPage(page) {
   });
   renderGallery.renderGalleryMarkup(currentPageData);
 }
+
+const removePaginationWithFirstRender = () => {
+  // console.log('oops');
+  // console.log(libraryData);
+  if (libraryData.length === 0) container.remove();
+};
 
 refs.linkPageLibrary.addEventListener('click', onLinkPageLibrary);
 refs.btnPageQueue.addEventListener('click', btnPageQueueHandler);
