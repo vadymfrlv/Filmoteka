@@ -4,5 +4,5 @@ import './js/myLibrary';
 import './js/pagination';
 import './js/footer';
 import './js/modal';
-import './js/buttonUpp';
+import './js/buttonUp';
 import './js/night-sky-mode';
