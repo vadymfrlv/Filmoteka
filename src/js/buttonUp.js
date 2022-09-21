@@ -1,34 +1,33 @@
-// const showOnPx = 100;
-// const backToTopButton = document.querySelector('.back-to-top');
-// const pageProgressBar = document.querySelector('.progress-bar');
+const showOnPx = 100;
+const backToTopButton = document.querySelector('.back-to-top');
+const pageProgressBar = document.querySelector('.progress-bar');
 
-// const scrollContainer = () => {
-//   return document.documentElement || document.body;
-// };
+const scrollContainer = () => {
+  return document.documentElement || document.body;
+};
 
-// const goToTop = () => {
-//   document.body.scrollIntoView({
-//     behavior: 'smooth',
-//   });
-// };
+const goToTop = () => {
+  document.body.scrollIntoView({
+    behavior: 'smooth',
+  });
+};
 
-// document.addEventListener('scroll', () => {
+document.addEventListener('scroll', () => {
+  const scrolledPercentage =
+    (scrollContainer().scrollTop /
+      (scrollContainer().scrollHeight - scrollContainer().clientHeight)) *
+    100;
 
-//   const scrolledPercentage =
-//     (scrollContainer().scrollTop /
-//       (scrollContainer().scrollHeight - scrollContainer().clientHeight)) *
-//     100;
+  pageProgressBar.style.height = `${scrolledPercentage}%`;
 
-//   pageProgressBar.style.height = `${scrolledPercentage}%`;
+  if (scrollContainer().scrollTop > showOnPx) {
+    backToTopButton.classList.remove('hidden');
+  } else {
+    backToTopButton.classList.add('hidden');
+  }
+});
 
-//   if (scrollContainer().scrollTop > showOnPx) {
-//     backToTopButton.classList.remove('hidden');
-//   } else {
-//     backToTopButton.classList.add('hidden');
-//   }
-// });
-
-// backToTopButton.addEventListener('click', goToTop);
+backToTopButton.addEventListener('click', goToTop);
 
 // import { refs } from './refs';
 // window.onscroll = () => {
