@@ -15,4 +15,5 @@ export const refs = {
 
   // main
   galleryListEl: document.querySelector('.gallery__grid'),
+  backToTopBtn: document.querySelector('.back-to-top'),
 };
