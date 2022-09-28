@@ -1,13 +1,27 @@
+const showOnPx = 100;
 import { refs } from './refs';
 
-window.onscroll = () => {
-  if (window.scrollY > 700) {
-    refs.backToTopBtn.classList.remove('is-hidden');
-  } else {
-    refs.backToTopBtn.classList.add('is-hidden');
-  }
+const scrollContainer = () => {
+  return document.documentElement || document.body;
 };
 
-refs.backToTopBtn.onclick = () => {
-  window.scrollTo(0, 0);
+const goToTop = () => {
+  document.body.scrollIntoView({
+    behavior: 'smooth',
+  });
 };
+
+document.addEventListener('scroll', () => {
+  const scrolledPercentage =
+    (scrollContainer().scrollTop /
+      (scrollContainer().scrollHeight - scrollContainer().clientHeight)) *
+    100;
+
+  if (scrollContainer().scrollTop > showOnPx) {
+    refs.backToTopBtn.classList.remove('hidden');
+  } else {
+    refs.backToTopBtn.classList.add('hidden');
+  }
+});
+
+refs.backToTopBtn.addEventListener('click', goToTop);
