@@ -31,8 +31,7 @@ const paginationLibrary = new Pagination(container, {
     currentPage: '<a class="page-btn is-selected">{{page}}</a>',
     page: '<a class="page-btn">{{page}}</a>',
     moveButton: `<button class="move-btn move-btn-{{type}}"></button>`,
-    disabledMoveButton:
-      '<button class="move-btn move-btn-{{type}} disabled" disabled></button>',
+    disabledMoveButton: '<button class="move-btn move-btn-{{type}} disabled" disabled></button>',
     moreButton: '<a class="page-btn next-is-ellip last-child">...</a>',
   },
 });
@@ -75,22 +74,13 @@ const onLinkPageLibrary = async e => {
 };
 
 async function onLibPerPage(page) {
-  const currentPageData = libraryData.slice(
-    (page - 1) * cardsQuantity,
-    page * cardsQuantity
-  );
+  const currentPageData = libraryData.slice((page - 1) * cardsQuantity, page * cardsQuantity);
 
   window.scrollTo({
     top: 0,
   });
   renderGallery.renderGalleryMarkup(currentPageData);
 }
-
-// const removePaginationWithFirstRender = () => {
-//   // console.log('oops');
-//   // console.log(libraryData);
-//   if (libraryData.length === 0) container.remove();
-// };
 
 refs.linkPageLibrary.addEventListener('click', onLinkPageLibrary);
 refs.btnPageQueue.addEventListener('click', btnPageQueueHandler);

@@ -6,8 +6,6 @@ import { onWatchTrailer } from './youtube-trailer';
 import RenderGallery from './render-gallery';
 import Pagination from 'tui-pagination';
 
-// import { removePaginationWithFirstRender } from './myLibrary';
-
 const apiService = new ApiService();
 const localStorageHandle = new LocalStorageHandle();
 const normalizeDataApi = new NormalizeDataApi();
