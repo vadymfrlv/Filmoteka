@@ -22,6 +22,7 @@ class RenderGallery {
 
     galleryListEl.innerHTML = articlesTpl(normalizedData);
   }
+
   renderQueueLibrary() {
     const queueFilmsData = localStorageHandle.getLocalStorageQueue();
     const normalizedData = queueFilmsData.map(el => {
