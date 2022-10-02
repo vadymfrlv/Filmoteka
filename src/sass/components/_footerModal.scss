@@ -81,10 +81,6 @@
 }
 
 .modal-body {
-  // padding: 2px 16px;
-  // display: flex;
-  // justify-content: space-evenly;
-
   display: grid;
   grid-template-columns: repeat(3, auto);
   gap: 10px;
@@ -92,7 +88,6 @@
 
 @include mq(tab) {
   .modal-body {
-    // padding: 2px 16px;
     display: flex;
     justify-content: space-evenly;
   }
@@ -116,7 +111,6 @@
 }
 
 .modal-card div {
-  // display: none;
   width: 80px;
   margin-top: 10px;
   background-color: #fefefe;
@@ -173,16 +167,8 @@
     bottom: 300px;
     width: 100%;
   }
-  // 0% {
-  //   transform: scaleY(0.005) scaleX(0);
-  // }
-  // 50% {
-  //   transform: scaleY(0.005) scaleX(1);
-  // }
-  // 100% {
-  //   transform: scaleY(1) scaleX(1);
-  // }
 }
+
 @keyframes slideOff {
   0% {
     transform: scaleY(1) scaleX(1);
