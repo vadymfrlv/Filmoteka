@@ -1,68 +1,61 @@
-
-.pozit-btn-trel{
+.pozit-btn-trel {
   position: relative;
 }
 
+.btn-trailer {
+  position: absolute;
+  bottom: 3%;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 2px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid #000;
+  transition: all 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71);
+  &:hover {
+    background-color: #ff6b08;
+    color: #ffffff;
+    border: 1px solid #ff6b08;
+  }
+  @include mq(tab-only) {
+    width: 264px;
+  }
+  @include mq(desk) {
+    padding: 10px;
+    bottom: 8%;
+    width: 293px;
+  }
+}
 
+iframe {
+  position: relative;
+  min-width: 50vw;
+  height: 60vh;
+}
 
-  .btn-trailer {
-    position: absolute;
-    bottom: 3%;
-    text-align: center;
-    text-transform: uppercase;
-    padding: 2px;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: transparent;
-    border: 1px solid #000;
-    transition: all 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71);
-    &:hover {
-      background-color: #ff6b08;
-      color: #ffffff;
-      border: 1px solid #ff6b08;
-    }
-    @include mq(tab-only) {
-      width: 264px;
-    }
-    @include mq(desk) {
-      padding: 10px;
-      bottom:8%;
-      width: 293px;
-    }
+#youtube-close-btn {
+  position: absolute;
+  width: 48px;
+  background-color: transparent;
+  border: transparent;
+  z-index: 2;
+  top: -47px;
+  right: -10px;
 
-  }
-  
-  
-  //плеєр
-  iframe {
-    position: relative;
-    min-width: 50vw;
-    height: 60vh;
-  }
-  
-  #youtube-close-btn {
-    position: absolute;
-    width: 48px;
-    background-color: transparent;
-    border: transparent;
-    z-index: 2;
-    top: -47px;
-    right: -10px;
-  
-    .fa-regular {
-      width: 35px;
-      height: 35px;
-      color: black;
-      border-radius: 50%;
-      font-size: 30px;
-      &:hover,
-      &:focus {
-        color: orange;
-        cursor: pointer;
-      }
+  .fa-regular {
+    width: 35px;
+    height: 35px;
+    color: black;
+    border-radius: 50%;
+    font-size: 30px;
+    &:hover,
+    &:focus {
+      color: orange;
+      cursor: pointer;
     }
   }
-  .basicLightbox.basicLightbox--visible {
-    background-color: rgba(0, 0, 0, 0.9);
-  }
-  
+}
+.basicLightbox.basicLightbox--visible {
+  background-color: rgba(0, 0, 0, 0.9);
+}
