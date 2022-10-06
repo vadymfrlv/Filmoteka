@@ -36,10 +36,6 @@ const handleBtnWatched = btn => {
     refs.galleryList.classList.contains('js-library') &&
     !refs.galleryList.classList.contains('js-queue')
   ) {
-    // const checkLocalStorage = localStorageHandle.getLocalStorageWatched();
-    // if (checkLocalStorage.length === 0) {
-    //   container.remove();
-    // }
     renderGallery.renderWatchedLibrary();
   }
 };
