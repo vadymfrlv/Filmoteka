@@ -53,10 +53,6 @@ const handleBtnQueue = btn => {
     refs.galleryList.classList.contains('js-library') &&
     refs.galleryList.classList.contains('js-queue')
   ) {
-    // const checkLocalStorage = localStorageHandle.getLocalStorageQueue();
-    // if (checkLocalStorage.length === 0) {
-    //   container.remove();
-    // }
     renderGallery.renderQueueLibrary();
   }
 };
