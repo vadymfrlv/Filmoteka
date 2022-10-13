@@ -4,9 +4,7 @@ import '../sass/index.scss';
 
 const modal = document.getElementById('myModal');
 const modalCont = document.querySelector('.modal-content');
-
 const btn = document.getElementById('myBtn');
-
 const span = document.getElementsByClassName('close')[0];
 
 let timerId = null;
