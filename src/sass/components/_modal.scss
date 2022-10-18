@@ -37,11 +37,13 @@
     width: 294px;
   }
 }
+
 .modal-info {
   @include mq(desk) {
     width: 391px;
   }
 }
+
 .modal {
   position: absolute;
   top: 69%;
