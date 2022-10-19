@@ -11,6 +11,7 @@ const refs = {
   btnPageQueue: document.querySelector('.js-btn_queue'),
   galleryList: document.querySelector('.gallery__grid'),
 };
+
 const container = document.getElementById('tui-pagination-container');
 
 const renderGallery = new RenderGallery();
