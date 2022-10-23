@@ -1,19 +1,20 @@
-import ApiService from './api-service';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import { refs } from './refs';
+import ApiService from './api-service';
 
 const apiService = new ApiService();
 
 export function watchTrailer() {
-  let idBtn = document.querySelector('.film__button');
+  const idBtn = document.querySelector('.film__button');
 
   apiService.movieId = idBtn.dataset.id;
 
   apiService
     .getTrailers()
     .then(data => {
-      let results = data.results[0];
-      let key = results.key;
+      const results = data.results[0];
+      const key = results.key;
       return key;
     })
     .then(key => iframeRender(key))
@@ -30,8 +31,7 @@ function iframeRender(key) {
     `,
     {
       onShow: instance => {
-        instance.element().querySelector('#youtube-close-btn').onclick =
-          instance.close;
+        instance.element().querySelector('#youtube-close-btn').onclick = instance.close;
       },
     }
   );
