@@ -9,6 +9,7 @@ const renderGallery = new RenderGallery();
 
 class HandleQueryTrendingApi {
   constructor() {}
+
   async handleQueryTrendingDataApi() {
     try {
       Loading.circle('Loading...');
