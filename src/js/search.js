@@ -15,7 +15,7 @@ const container = document.getElementById('tui-pagination-container');
 
 refs.form.addEventListener('submit', onSearch);
 
-const paginationSerch = new Pagination(container, {
+const paginationSearch = new Pagination(container, {
   itemsPerPage: 20,
   visiblePages: 5,
   centerAlign: true,
@@ -28,7 +28,7 @@ const paginationSerch = new Pagination(container, {
   },
 });
 
-paginationSerch.on('afterMove', event => {
+paginationSearch.on('afterMove', event => {
   const currentPage = event.page;
   onSearchPerPage(currentPage);
 });
@@ -59,7 +59,7 @@ async function onSearch(e) {
     renderGallery.renderGalleryMarkup(normalizedData);
     refs.formInput.value = '';
     Loading.remove();
-    paginationSerch.reset(data.total_results);
+    paginationSearch.reset(data.total_results);
     return data;
   } catch (error) {
     Loading.remove();
